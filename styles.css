@@ -1,0 +1,478 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: #000000;
+    min-height: 100vh;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+.timeline-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+}
+
+/* Header Styles */
+.timeline-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid #374151;
+}
+
+.timeline-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    background: linear-gradient(135deg, #4ade80, #22c55e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.timeline-header p {
+    font-size: 1.125rem;
+    color: #9ca3af;
+    margin-bottom: 2rem;
+}
+
+/* Filter Buttons */
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.main-filter-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.filter-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid #374151;
+    background: #111827;
+    color: #ffffff;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 150px;
+    text-align: center;
+}
+
+.filter-btn:hover {
+    background: #1f2937;
+    border-color: #4ade80;
+}
+
+.filter-btn.active {
+    background: #4ade80;
+    color: #000000;
+    border-color: #4ade80;
+}
+
+.main-filter {
+    position: relative;
+}
+
+.main-filter::after {
+    content: '▼';
+    margin-left: 0.5rem;
+    font-size: 0.7rem;
+    transition: transform 0.2s ease;
+}
+
+.main-filter.active::after {
+    transform: rotate(180deg);
+}
+
+/* Subcategory Buttons - Horizontal Layout */
+.subcategory-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.subcategory-buttons.show {
+    opacity: 1;
+    visibility: visible;
+    max-height: 100px;
+}
+
+.subcategory-btn {
+    padding: 0.4rem 0.8rem;
+    background: #374151;
+    color: #ffffff;
+    border: 1px solid #4b5563;
+    border-radius: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.subcategory-btn:hover {
+    background: #4b5563;
+    border-color: #4ade80;
+}
+
+.subcategory-btn.active {
+    background: #4ade80;
+    color: #000000;
+    border-color: #4ade80;
+}
+
+/* Timeline Styles */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #4ade80, #22c55e, #16a34a);
+}
+
+.timeline-section {
+    position: relative;
+    margin-bottom: 3rem;
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.6s ease;
+}
+
+.timeline-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -2rem;
+    top: 1rem;
+    width: 1rem;
+    height: 1rem;
+    background: #4ade80;
+    border-radius: 50%;
+    border: 3px solid #000000;
+    z-index: 2;
+}
+
+.timeline-content {
+    background: #000000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #374151;
+    transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-2px);
+    border-color: #4ade80;
+    box-shadow: 0 8px 25px rgba(74, 222, 128, 0.1);
+}
+
+.era-header {
+    background: #000000;
+    padding: 1.5rem;
+    border-bottom: 1px solid #374151;
+}
+
+.era-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: #ffffff;
+}
+
+.era-subtitle {
+    font-size: 0.875rem;
+    color: #9ca3af;
+    font-weight: 400;
+}
+
+.timeline-events {
+    padding: 0;
+}
+
+.event {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: #000000;
+    border-bottom: 1px solid #374151;
+    transition: all 0.3s ease;
+    opacity: 1;
+}
+
+.event:last-child {
+    border-bottom: none;
+}
+
+.event:hover {
+    background: #111111;
+}
+
+.event-year {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #4ade80;
+    min-width: 4rem;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    background: #1a1a1a;
+    border-radius: 8px;
+    border: 1px solid #374151;
+    height: fit-content;
+    flex-shrink: 0;
+}
+
+.event-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.event-content h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.event-content p {
+    color: #d1d5db;
+    margin: 0;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Tags Container */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+/* Category and Subcategory Tags */
+.category-tag, .subcategory-tag {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #ffffff;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    line-height: 1;
+}
+
+.subcategory-tag {
+    background: #374151;
+    color: #d1d5db;
+    font-size: 0.7rem;
+    padding: 0.3rem 0.7rem;
+}
+
+/* Category Tag Colors */
+.persona-ipo {
+    background: #ec4899; /* Pink */
+}
+
+.tech-ipo {
+    background: #3b82f6; /* Blue */
+}
+
+.stewardship {
+    background: #8b5cf6; /* Purple */
+}
+
+.capital-markets {
+    background: #f59e0b; /* Orange */
+}
+
+.governance-failure {
+    background: #ef4444; /* Red */
+}
+
+.failed-ipo {
+    background: #6b7280; /* Gray */
+}
+
+.persona-takeover {
+    background: #10b981; /* Emerald */
+}
+
+.trust-law {
+    background: #3b82f6; /* Blue */
+}
+
+.tax-law {
+    background: #8b5cf6; /* Purple */
+}
+
+.disclosure {
+    background: #f59e0b; /* Orange */
+}
+
+.enforcement {
+    background: #ef4444; /* Red */
+}
+
+.governance {
+    background: #06b6d4; /* Cyan */
+}
+
+.capital-formation {
+    background: #84cc16; /* Lime */
+}
+
+.judicial {
+    background: #f97316; /* Orange */
+}
+
+/* Source Button */
+.source-btn {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    background: #374151;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 1px solid #4b5563;
+    line-height: 1;
+}
+
+.source-btn:hover {
+    background: #4ade80;
+    color: #000000;
+    border-color: #4ade80;
+    transform: translateY(-1px);
+}
+
+/* Progress Bar */
+.timeline-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #1f2937;
+    z-index: 1000;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #4ade80, #22c55e);
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .timeline-container {
+        padding: 1rem;
+    }
+    
+    .timeline {
+        padding-left: 1.5rem;
+    }
+    
+    .timeline::before {
+        left: 0.75rem;
+    }
+    
+    .timeline-marker {
+        left: -1.5rem;
+    }
+    
+    .timeline-header h1 {
+        font-size: 2rem;
+    }
+    
+    .filter-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .main-filter-buttons {
+        gap: 0.5rem;
+    }
+    
+    .filter-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+        min-width: auto;
+    }
+    
+    .subcategory-buttons {
+        gap: 0.4rem;
+    }
+    
+    .subcategory-btn {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.6rem;
+    }
+    
+    .event {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .event-year {
+        min-width: auto;
+        text-align: left;
+        align-self: flex-start;
+    }
+    
+    .event-content h3 {
+        font-size: 1rem;
+    }
+    
+    .category-tag, .subcategory-tag {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.6rem;
+    }
+}
