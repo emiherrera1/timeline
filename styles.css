@@ -132,14 +132,14 @@ body {
 
 .main-filter-buttons {
     display: block;
-    flex-direction: column;
+    
     gap: 0.75rem;
 }
 
 .filter-group {
     position: relative;
     display: block;
-    flex-direction: column;
+    
     gap: 0.75rem;
 }
 
@@ -345,9 +345,9 @@ body {
 }
 
 .event-content {
-    flex: 1;
+    
     display: block;
-    flex-direction: column;
+    
     gap: 0.75rem;
 }
 
@@ -595,8 +595,7 @@ body.loaded {
     }
     
     .filter-buttons {
-        flex-direction: column;
-        gap: 1rem;
+        
     }
     
     .main-filter-buttons {
@@ -626,14 +625,12 @@ body.loaded {
     will-change: transform, opacity;
     
         padding: 1rem;
-        flex-direction: column;
-        gap: 1rem;
+        
     }
     
     .event-year {
         min-width: auto;
         text-align: left;
-        align-self: flex-start;
     }
     
     .event-content h3 {
