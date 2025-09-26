@@ -285,7 +285,6 @@ body {
     /* Hardware acceleration for hover effects */
     will-change: transform;
     transform: translateZ(0) translateY(-2px);
-    transform: translateY(-2px);
     border-color: #00D4AA;
     box-shadow: 0 8px 25px rgba(74, 222, 128, 0.1);
 }
