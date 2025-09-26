@@ -7,7 +7,6 @@ class TimelineScroll {
     }
 
     init() {
-        this.setupClickOutsideListener();
         this.setupScrollListener();
         this.setupIntersectionObserver();
     }
@@ -87,10 +86,10 @@ class TimelineController {
     }
 
     init() {
-        this.setupClickOutsideListener();
         this.setupSearchListeners();
         this.setupFilterListeners();
         this.setupSubcategoryListeners();
+        this.setupClickOutsideListener();
     }
 
     setupSearchListeners() {
@@ -144,6 +143,7 @@ class TimelineController {
                         this.applyAllFilters();
                         return;
                     }
+                    
                     this.currentFilter = filter;
                     this.currentSubcategory = null;
                     this.hideAllSubcategories();
@@ -159,14 +159,6 @@ class TimelineController {
         });
     }
 
-    setupClickOutsideListener() {
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.filter-group') setupSubcategoryListeners() {setupSubcategoryListeners() { !e.target.closest('.search-container')) {
-                this.hideAllSubcategories();
-            }
-        });
-    }
-
     setupSubcategoryListeners() {
         this.subcategoryButtons.forEach(button => {
             button.addEventListener('click', (e) => {
@@ -174,6 +166,14 @@ class TimelineController {
                 this.updateSubcategoryButtons();
                 this.applyAllFilters();
             });
+        });
+    }
+
+    setupClickOutsideListener() {
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.filter-group') && !e.target.closest('.search-container')) {
+                this.hideAllSubcategories();
+            }
         });
     }
 
