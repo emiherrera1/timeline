@@ -33,7 +33,7 @@ body {
     font-weight: 700;
     margin-bottom: 0.5rem;
     color: #ffffff;
-    background: linear-gradient(135deg, #4ade80, #22c55e);
+    background: linear-gradient(135deg, #00D4AA, #00D4AA);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -50,8 +50,8 @@ body {
 
 .search-button {
     padding: 0.75rem 1.5rem;
-    border: 1px solid #4ade80;
-    background: #4ade80;
+    border: 1px solid #00D4AA;
+    background: #00D4AA;
     color: #000000;
     border-radius: 0.5rem;
     font-size: 1rem;
@@ -81,8 +81,8 @@ body {
 }
 
 .search-button:hover {
-    background: #22c55e;
-    border-color: #22c55e;
+    background: #00D4AA;
+    border-color: #00D4AA;
     transform: translateY(-1px);
 }
 
@@ -101,7 +101,7 @@ body {
 
 .search-input:focus {
     outline: none;
-    border-color: #4ade80;
+    border-color: #00D4AA;
     box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1);
 }
 
@@ -153,13 +153,13 @@ body {
 
 .filter-btn:hover {
     background: #1f2937;
-    border-color: #4ade80;
+    border-color: #00D4AA;
 }
 
 .filter-btn.active {
-    background: #4ade80;
+    background: #00D4AA;
     color: #000000;
-    border-color: #4ade80;
+    border-color: #00D4AA;
 }
 
 .main-filter {
@@ -211,13 +211,13 @@ body {
 
 .subcategory-btn:hover {
     background: #4b5563;
-    border-color: #4ade80;
+    border-color: #00D4AA;
 }
 
 .subcategory-btn.active {
-    background: #4ade80;
+    background: #00D4AA;
     color: #000000;
-    border-color: #4ade80;
+    border-color: #00D4AA;
 }
 
 /* Timeline Styles */
@@ -233,7 +233,7 @@ body {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(to bottom, #4ade80, #22c55e, #16a34a);
+    background: linear-gradient(to bottom, #00D4AA, #00D4AA, #00D4AA);
 }
 
 .timeline-section {
@@ -255,7 +255,7 @@ body {
     top: 1rem;
     width: 1rem;
     height: 1rem;
-    background: #4ade80;
+    background: #00D4AA;
     border-radius: 50%;
     border: 3px solid #000000;
     z-index: 2;
@@ -272,7 +272,7 @@ body {
 
 .timeline-content:hover {
     transform: translateY(-2px);
-    border-color: #4ade80;
+    border-color: #00D4AA;
     box-shadow: 0 8px 25px rgba(74, 222, 128, 0.1);
 }
 
@@ -321,7 +321,7 @@ body {
 .event-year {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #4ade80;
+    color: #00D4AA;
     min-width: 4rem;
     text-align: center;
     padding: 0.75rem 1rem;
@@ -382,8 +382,66 @@ body {
     padding: 0.3rem 0.7rem;
 }
 
-/* Category Tag Colors */
+/* Bloomberg Terminal Color Scheme */
 .persona-ipo {
+    background: #00D4AA; /* Bloomberg Green */
+}
+
+.tech-ipo {
+    background: #FFD700; /* Bloomberg Yellow */
+}
+
+.stewardship {
+    background: #1E90FF; /* Bloomberg Blue */
+}
+
+.capital-markets {
+    background: #FFD700; /* Bloomberg Yellow */
+}
+
+.governance-failure {
+    background: #FF6B6B; /* Bloomberg Red */
+}
+
+.failed-ipo {
+    background: #808080; /* Bloomberg Gray */
+}
+
+.persona-takeover {
+    background: #00D4AA; /* Bloomberg Green */
+}
+
+.trust-law {
+    background: #1E90FF; /* Bloomberg Blue */
+}
+
+.tax-law {
+    background: #1E90FF; /* Bloomberg Blue */
+}
+
+.disclosure {
+    background: #FFD700; /* Bloomberg Yellow */
+}
+
+.enforcement {
+    background: #FF6B6B; /* Bloomberg Red */
+}
+
+.governance {
+    background: #1E90FF; /* Bloomberg Blue */
+}
+
+.capital-formation {
+    background: #00D4AA; /* Bloomberg Green */
+}
+
+.judicial {
+    background: #FFD700; /* Bloomberg Yellow */
+}
+    background: #FFD700; /* Bloomberg Yellow */
+}
+
+.tech-ipo {
     background: #ec4899; /* Pink */
 }
 
@@ -455,9 +513,9 @@ body {
 }
 
 .source-btn:hover {
-    background: #4ade80;
+    background: #00D4AA;
     color: #000000;
-    border-color: #4ade80;
+    border-color: #00D4AA;
     transform: translateY(-1px);
 }
 
@@ -474,7 +532,7 @@ body {
 
 .progress-bar {
     height: 100%;
-    background: linear-gradient(90deg, #4ade80, #22c55e);
+    background: linear-gradient(90deg, #00D4AA, #00D4AA);
     width: 0%;
     transition: width 0.1s ease;
 }
