@@ -137,9 +137,16 @@ class TimelineController {
                 } else if (filter === 'founder' || filter === 'regulation') {
                     // Toggle subcategory if clicking the same filter
                     if (this.currentFilter === filter) {
-                        this.currentSubcategory = null;
-                        this.hideAllSubcategories();
-                        this.updateSubcategoryButtons();
+                        const subcategoryContainer = document.getElementById(`${filter}-subcategories`);
+                        if (subcategoryContainer.classList.contains('show')) {
+                            // Close subcategories
+                            this.currentSubcategory = null;
+                            this.hideAllSubcategories();
+                            this.updateSubcategoryButtons();
+                        } else {
+                            // Open subcategories
+                            subcategoryContainer.classList.add('show');
+                        }
                         this.applyAllFilters();
                         return;
                     }
