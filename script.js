@@ -1,12 +1,16 @@
 // Timeline Scroll Interactions
 class TimelineScroll {
     constructor() {
+        this.searchInput = document.getElementById('searchInput');
+        this.searchButton = document.getElementById('searchButton');
+        this.clearButton = document.getElementById('clearButton');
         this.timelineSections = document.querySelectorAll('.timeline-section');
         this.progressBar = document.querySelector('.progress-bar');
         this.init();
     }
 
     init() {
+        this.setupSearchButtonListener();
         this.setupScrollListener();
         this.setupIntersectionObserver();
     }
@@ -70,6 +74,9 @@ class TimelineScroll {
 // Filter functionality with horizontal subcategories
 class TimelineFilter {
     constructor() {
+        this.searchInput = document.getElementById('searchInput');
+        this.searchButton = document.getElementById('searchButton');
+        this.clearButton = document.getElementById('clearButton');
         this.filterButtons = document.querySelectorAll('.filter-btn');
         this.subcategoryButtons = document.querySelectorAll('.subcategory-btn');
         this.events = document.querySelectorAll('.event');
@@ -80,6 +87,7 @@ class TimelineFilter {
     }
 
     init() {
+        this.setupSearchButtonListener();
         this.setupMainFilterListeners();
         this.setupSubcategoryListeners();
     }

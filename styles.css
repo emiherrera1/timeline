@@ -40,9 +40,50 @@ body {
 }
 
 .search-container {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
     margin-bottom: 2rem;
     display: flex;
     justify-content: center;
+}
+
+.search-button {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid #4ade80;
+    background: #4ade80;
+    color: #000000;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.clear-button {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid #6b7280;
+    background: #6b7280;
+    color: #ffffff;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.clear-button:hover {
+    background: #4b5563;
+    border-color: #4b5563;
+    transform: translateY(-1px);
+}
+
+.search-button:hover {
+    background: #22c55e;
+    border-color: #22c55e;
+    transform: translateY(-1px);
 }
 
 .search-input {
