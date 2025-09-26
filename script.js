@@ -7,6 +7,7 @@ class TimelineScroll {
     }
 
     init() {
+        this.setupClickOutsideListener();
         this.setupScrollListener();
         this.setupIntersectionObserver();
     }
@@ -86,6 +87,7 @@ class TimelineController {
     }
 
     init() {
+        this.setupClickOutsideListener();
         this.setupSearchListeners();
         this.setupFilterListeners();
         this.setupSubcategoryListeners();
@@ -134,6 +136,14 @@ class TimelineController {
                     this.currentSubcategory = null;
                     this.hideAllSubcategories();
                 } else if (filter === 'founder' || filter === 'regulation') {
+                    // Toggle subcategory if clicking the same filter
+                    if (this.currentFilter === filter) {
+                        this.currentSubcategory = null;
+                        this.hideAllSubcategories();
+                        this.updateSubcategoryButtons();
+                        this.applyAllFilters();
+                        return;
+                    }
                     this.currentFilter = filter;
                     this.currentSubcategory = null;
                     this.hideAllSubcategories();
@@ -146,6 +156,14 @@ class TimelineController {
                 this.updateFilterButtons();
                 this.applyAllFilters();
             });
+        });
+    }
+
+    setupClickOutsideListener() {
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.filter-group') setupSubcategoryListeners() {setupSubcategoryListeners() { !e.target.closest('.search-container')) {
+                this.hideAllSubcategories();
+            }
         });
     }
 
