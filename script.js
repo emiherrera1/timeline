@@ -1,8 +1,10 @@
-// Timeline Scroll Interactions
+// Performance-optimized Timeline Scroll Interactions
 class TimelineScroll {
     constructor() {
         this.timelineSections = document.querySelectorAll('.timeline-section');
         this.progressBar = document.querySelector('.progress-bar');
+        this.isScrolling = false;
+        this.animationFrameId = null;
         this.init();
     }
 
@@ -12,12 +14,15 @@ class TimelineScroll {
     }
 
     setupScrollListener() {
+        // Throttled scroll listener for better performance
         let ticking = false;
         
         const updateProgress = () => {
+            if (!this.isScrolling) return;
+            
             const scrollTop = window.pageYOffset;
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / docHeight) * 100;
+            const scrollPercent = Math.min(100, Math.max(0, (scrollTop / docHeight) * 100));
             
             this.progressBar.style.width = scrollPercent + '%';
             ticking = false;
@@ -25,23 +30,34 @@ class TimelineScroll {
 
         const requestTick = () => {
             if (!ticking) {
-                requestAnimationFrame(updateProgress);
+                this.animationFrameId = requestAnimationFrame(updateProgress);
                 ticking = true;
             }
         };
 
+        // Use passive listeners for better performance
         window.addEventListener('scroll', requestTick, { passive: true });
+        
+        // Track scroll state for performance
+        window.addEventListener('scroll', () => {
+            this.isScrolling = true;
+            clearTimeout(this.scrollTimeout);
+            this.scrollTimeout = setTimeout(() => {
+                this.isScrolling = false;
+            }, 150);
+        }, { passive: true });
     }
 
     setupIntersectionObserver() {
+        // Optimized intersection observer with better performance
         const observerOptions = {
-            threshold: 0.2,
+            threshold: [0, 0.1, 0.5, 1],
             rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
+                if (entry.isIntersecting && entry.intersectionRatio > 0.1) {
                     entry.target.classList.add('visible');
                     this.animateMarker(entry.target);
                 }
@@ -55,19 +71,31 @@ class TimelineScroll {
 
     animateMarker(section) {
         const marker = section.querySelector('.marker-dot');
-        if (marker) {
+        if (marker && !marker.classList.contains('animated')) {
+            marker.classList.add('animated');
             marker.style.transform = 'scale(1.2)';
-            marker.style.boxShadow = '0 0 20px rgba(74, 222, 128, 0.5)';
+            marker.style.boxShadow = '0 0 20px rgba(0, 212, 170, 0.5)';
             
             setTimeout(() => {
                 marker.style.transform = 'scale(1)';
                 marker.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
+                marker.classList.remove('animated');
             }, 300);
+        }
+    }
+
+    // Cleanup method for performance
+    destroy() {
+        if (this.animationFrameId) {
+            cancelAnimationFrame(this.animationFrameId);
+        }
+        if (this.scrollTimeout) {
+            clearTimeout(this.scrollTimeout);
         }
     }
 }
 
-// Main Timeline Controller
+// Performance-optimized Timeline Controller
 class TimelineController {
     constructor() {
         this.events = document.querySelectorAll('.event');
@@ -81,6 +109,12 @@ class TimelineController {
         this.currentFilter = 'all';
         this.currentSubcategory = null;
         this.currentSearchTerm = '';
+        this.searchTimeout = null;
+        this.filterTimeout = null;
+        
+        // Debounced methods for better performance
+        this.debouncedSearch = this.debounce(this.performSearch.bind(this), 150);
+        this.debouncedFilter = this.debounce(this.applyAllFilters.bind(this), 100);
         
         this.init();
     }
@@ -90,13 +124,45 @@ class TimelineController {
         this.setupFilterListeners();
         this.setupSubcategoryListeners();
         this.setupClickOutsideListener();
+        this.preloadEventData();
+    }
+
+    // Debounce utility for performance
+    debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
+    // Preload event data for faster filtering
+    preloadEventData() {
+        this.eventData = new Map();
+        this.events.forEach(event => {
+            const title = event.querySelector('h3').textContent;
+            const description = event.querySelector('p').textContent;
+            const year = event.querySelector('.event-year').textContent;
+            const categoryTags = Array.from(event.querySelectorAll('.category-tag')).map(tag => tag.textContent).join(' ');
+            const subcategoryTags = Array.from(event.querySelectorAll('.subcategory-tag')).map(tag => tag.textContent).join(' ');
+            
+            this.eventData.set(event, {
+                text: `${title} ${description} ${year} ${categoryTags} ${subcategoryTags}`.toLowerCase(),
+                category: event.dataset.category,
+                subcategory: event.dataset.subcategory
+            });
+        });
     }
 
     setupSearchListeners() {
-        // Real-time search as you type
+        // Debounced real-time search
         this.searchInput.addEventListener('input', (e) => {
             this.currentSearchTerm = e.target.value;
-            this.applyAllFilters();
+            this.debouncedSearch();
         });
 
         // Search on Enter key
@@ -104,14 +170,14 @@ class TimelineController {
             if (e.key === 'Enter') {
                 e.preventDefault();
                 this.currentSearchTerm = e.target.value;
-                this.applyAllFilters();
+                this.performSearch();
             }
         });
 
         // Search button
         this.searchButton.addEventListener('click', () => {
             this.currentSearchTerm = this.searchInput.value;
-            this.applyAllFilters();
+            this.performSearch();
         });
 
         // Clear button
@@ -147,7 +213,7 @@ class TimelineController {
                             // Open subcategories
                             subcategoryContainer.classList.add('show');
                         }
-                        this.applyAllFilters();
+                        this.debouncedFilter();
                         return;
                     }
                     
@@ -161,7 +227,7 @@ class TimelineController {
                 }
                 
                 this.updateFilterButtons();
-                this.applyAllFilters();
+                this.debouncedFilter();
             });
         });
     }
@@ -171,7 +237,7 @@ class TimelineController {
             button.addEventListener('click', (e) => {
                 this.currentSubcategory = e.target.dataset.filter;
                 this.updateSubcategoryButtons();
-                this.applyAllFilters();
+                this.debouncedFilter();
             });
         });
     }
@@ -184,68 +250,76 @@ class TimelineController {
         });
     }
 
-    applyAllFilters() {
-        this.events.forEach(event => {
-            const matchesSearch = this.matchesSearch(event);
-            const matchesFilter = this.matchesFilter(event);
-            
-            if (matchesSearch && matchesFilter) {
-                event.style.display = 'flex';
-                event.style.opacity = '1';
-                if (this.currentSearchTerm) {
-                    this.highlightSearchTerm(event, this.currentSearchTerm);
-                } else {
-                    this.removeHighlights(event);
-                }
-            } else {
-                event.style.opacity = '0';
-                setTimeout(() => {
-                    event.style.display = 'none';
-                }, 300);
-            }
-        });
+    performSearch() {
+        this.applyAllFilters();
+    }
 
-        // Update section visibility
-        setTimeout(() => this.updateSectionVisibility(), 350);
+    applyAllFilters() {
+        // Use requestAnimationFrame for smooth animations
+        requestAnimationFrame(() => {
+            this.events.forEach(event => {
+                const matchesSearch = this.matchesSearch(event);
+                const matchesFilter = this.matchesFilter(event);
+                
+                if (matchesSearch && matchesFilter) {
+                    this.showEvent(event);
+                    if (this.currentSearchTerm) {
+                        this.highlightSearchTerm(event, this.currentSearchTerm);
+                    } else {
+                        this.removeHighlights(event);
+                    }
+                } else {
+                    this.hideEvent(event);
+                }
+            });
+
+            // Update section visibility with delay for smooth transitions
+            setTimeout(() => this.updateSectionVisibility(), 200);
+        });
+    }
+
+    showEvent(event) {
+        event.style.display = 'flex';
+        event.style.opacity = '1';
+        event.style.transform = 'translateY(0)';
+    }
+
+    hideEvent(event) {
+        event.style.opacity = '0';
+        event.style.transform = 'translateY(-10px)';
+        setTimeout(() => {
+            if (event.style.opacity === '0') {
+                event.style.display = 'none';
+            }
+        }, 300);
     }
 
     matchesSearch(event) {
         if (!this.currentSearchTerm) return true;
         
-        const eventText = this.getEventText(event).toLowerCase();
-        return eventText.includes(this.currentSearchTerm.toLowerCase());
+        const eventData = this.eventData.get(event);
+        return eventData.text.includes(this.currentSearchTerm.toLowerCase());
     }
 
     matchesFilter(event) {
         if (this.currentFilter === 'all') return true;
         
-        const eventCategory = event.dataset.category;
-        const eventSubcategory = event.dataset.subcategory;
+        const eventData = this.eventData.get(event);
         
-        if (eventCategory !== this.currentFilter) return false;
+        if (eventData.category !== this.currentFilter) return false;
         
         if (this.currentSubcategory) {
-            return eventSubcategory === this.currentSubcategory;
+            return eventData.subcategory === this.currentSubcategory;
         }
         
         return true;
-    }
-
-    getEventText(event) {
-        const title = event.querySelector('h3').textContent;
-        const description = event.querySelector('p').textContent;
-        const year = event.querySelector('.event-year').textContent;
-        const categoryTags = Array.from(event.querySelectorAll('.category-tag')).map(tag => tag.textContent).join(' ');
-        const subcategoryTags = Array.from(event.querySelectorAll('.subcategory-tag')).map(tag => tag.textContent).join(' ');
-        
-        return `${title} ${description} ${year} ${categoryTags} ${subcategoryTags}`;
     }
 
     highlightSearchTerm(event, searchTerm) {
         // Remove existing highlights
         this.removeHighlights(event);
 
-        // Add new highlights
+        // Add new highlights with performance optimization
         const title = event.querySelector('h3');
         const description = event.querySelector('p');
         
@@ -315,6 +389,21 @@ class TimelineController {
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    new TimelineScroll();
-    new TimelineController();
+    // Add loading class for smooth initial load
+    document.body.classList.add('loading');
+    
+    // Initialize components
+    const timelineScroll = new TimelineScroll();
+    const timelineController = new TimelineController();
+    
+    // Remove loading class after initialization
+    requestAnimationFrame(() => {
+        document.body.classList.remove('loading');
+        document.body.classList.add('loaded');
+    });
+    
+    // Cleanup on page unload
+    window.addEventListener('beforeunload', () => {
+        timelineScroll.destroy();
+    });
 });
