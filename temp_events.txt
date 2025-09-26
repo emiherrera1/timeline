@@ -1,0 +1,12 @@
+                        <div class="event" data-category="founder" data-subcategory="persona-trust-collapse">
+                            <div class="event-year">2023</div>
+                            <div class="event-content">
+                                <h3>FaZe Stock Collapse (~98% down from IPO)</h3>
+                                <div class="tags-container">
+                                    <div class="category-tag founder">Founder-Related</div>
+                                    <div class="subcategory-tag persona-trust-collapse">Persona Trust Collapse</div>
+                                    <a href="https://www.musicbusinessworldwide.com/faze-clan-ceo-lee-trink-ousted-as-companys-stock-sees-98-decline-since-ipo/" class="source-btn" target="_blank">Source</a>
+                                </div>
+                                <p>FaZe Clan stock collapses nearly 98% from IPO price, CEO ousted as persona-driven valuation proves unsustainable.</p>
+                            </div>
+                        </div>
