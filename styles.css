@@ -47,11 +47,11 @@ body {
 }
 
 .search-container {
-    display: flex;
+    display: block;
     gap: 0.5rem;
     align-items: center;
     margin-bottom: 2rem;
-    display: flex;
+    display: block;
     justify-content: center;
 }
 
@@ -124,22 +124,21 @@ body {
 
 /* Filter Buttons */
 .filter-buttons {
-    display: flex;
+    display: block;
     justify-content: center;
-    align-items: flex-start;
     gap: 2rem;
     margin-top: 1.5rem;
 }
 
 .main-filter-buttons {
-    display: flex;
+    display: block;
     flex-direction: column;
     gap: 0.75rem;
 }
 
 .filter-group {
     position: relative;
-    display: flex;
+    display: block;
     flex-direction: column;
     gap: 0.75rem;
 }
@@ -189,7 +188,7 @@ body {
     /* Hardware acceleration for smooth dropdowns */
     will-change: opacity, transform, max-height;
     
-    display: flex;
+    display: block;
     flex-wrap: wrap;
     gap: 0.5rem;
     justify-content: center;
@@ -315,9 +314,7 @@ body {
     /* Hardware acceleration for smooth animations */
     will-change: transform, opacity;
     
-    display: flex;
-    align-items: flex-start;
-    gap: 1.5rem;
+    display: block;
     padding: 1.5rem;
     background: #000000;
     border-bottom: 1px solid #374151;
@@ -349,7 +346,7 @@ body {
 
 .event-content {
     flex: 1;
-    display: flex;
+    display: block;
     flex-direction: column;
     gap: 0.75rem;
 }
@@ -371,7 +368,7 @@ body {
 
 /* Tags Container */
 .tags-container {
-    display: flex;
+    display: block;
     flex-wrap: wrap;
     gap: 0.5rem;
     align-items: center;
