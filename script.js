@@ -390,7 +390,7 @@ class TimelineController {
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Add loading class for smooth initial load
-    // document.body.classList.add('loading');
+    document.body.classList.add('loading');
     
     // Initialize components
     const timelineScroll = new TimelineScroll();
@@ -398,8 +398,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Remove loading class after initialization
     requestAnimationFrame(() => {
-        // document.body.classList.remove('loading');
-        // document.body.classList.add('loaded');
+        document.body.classList.remove('loading');
+        document.body.classList.add('loaded');
     });
     
     // Cleanup on page unload
