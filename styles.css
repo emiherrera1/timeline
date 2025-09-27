@@ -554,12 +554,12 @@ body {
 }
 
 /* Loading States */
-body.loading {
+/* body.loading {
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
-body.loaded {
+/* body.loaded {
     opacity: 1;
 }
 
