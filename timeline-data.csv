@@ -1,78 +1,78 @@
 year,title,description,category,subcategory,source_url
-1957,Disney IPO,Investors buy into Walt Disney's vision — early cultural trust,founder,persona-ipo,https://www.goldmansachs.com/our-firm/history/moments/1957-disney-ipo
-1960,REIT Act (U.S.),Creates Real Estate Investment Trusts (REITs). First formal "public trust" vehicle,regulation,trust-law,https://www.sec.gov/files/reits.pdf
-1960,REIT Taxation Code §857,Establishes tax framework for REIT distributions and requirements,regulation,tax-law,https://www.law.cornell.edu/uscode/text/26/857
-1965,Buffett takes Berkshire,Warren Buffett acquires Berkshire Hathaway, establishing persona-driven investment model,founder,stewardship,https://www.investorsfriend.com/why-warren-buffett-bought-berkshire-hathaway/
-1969,First REIT IPOs,Early REITs list on public markets, scaling the REIT model,founder,capital-markets,https://www.investopedia.com/terms/r/reit.asp
-1980,ERISA Act,Employee Retirement Income Security Act establishes fiduciary standards,regulation,governance,https://www.dol.gov/agencies/ebsa/laws-and-regulations/laws/erisa
-1980,Apple IPO,Early risk disclosures cite reliance on Steve Jobs,founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/320193/0001193125-80-201868/d424b3.htm
-1981,401(k) Creation,Internal Revenue Code §401(k) creates defined contribution plans,regulation,tax-law,https://www.law.cornell.edu/uscode/text/26/401
-1981,Microsoft IPO,Bill Gates's role central to investor confidence,founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/789019/0001193125-86-201868/d424b3.htm
-1986,Oracle IPO,Larry Ellison's leadership acknowledged as a key dependency,founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/1341439/000119312512399999/d399484ddef14a.htm?utm_source=chatgpt.com
-1993,Clinton Tax Act,Omnibus Budget Reconciliation Act affects REIT taxation,regulation,tax-law,https://www.congress.gov/bill/103rd-congress/house-bill/2264
-1993,Simon Property Group IPO,Largest U.S. retail REIT goes public, scaling the REIT model,founder,capital-markets,https://www.sec.gov/Archives/edgar/data/1063761/0001193125-93-201868/d424b3.htm
-1997,REIT Modernization Act,Allows REITs to provide services to tenants,regulation,tax-law,https://www.congress.gov/bill/105th-congress/house-bill/2488
-1997,Amazon IPO (S-1),Early e-commerce pioneer with founder-driven vision,founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/1018724/0001193125-97-201868/d424b3.htm
-1999,Glass-Steagall Repeal,Financial Services Modernization Act removes banking restrictions,regulation,capital-formation,https://www.congress.gov/bill/106th-congress/senate-bill/900
-1999,Dot-com Bubble Peak,Technology stock valuations reach unsustainable levels,founder,tech-ipo,https://www.investopedia.com/terms/d/dotcom-bubble.asp
-1999,Martha Stewart Living Omnimedia IPO,One of the first major persona-driven IPOs. Collapsed in 2001–2004 after Stewart's legal troubles → early example of persona volatility,founder,persona-ipo,https://www.sec.gov/Archives/edgar/data/1262823/0001193125-99-201868/d424b3.htm
-1999,WWE IPO,Vince McMahon monetizes persona through a public company,founder,persona-ipo,https://www.sec.gov/Archives/edgar/data/1091907/0001193125-99-201868/d424b3.htm
-2000,Dot-com Crash,Technology stock market collapse,founder,tech-ipo,https://www.investopedia.com/terms/d/dotcom-bubble.asp
-2000,Regulation FD Final Rule,Regulation Fair Disclosure requires equal access to material information,regulation,disclosure,https://www.sec.gov/rules/final/33-7881.htm
-2001,Enron Scandal,Corporate accounting fraud exposes governance failures,regulation,enforcement,https://www.sec.gov/spotlight/enron.htm
-2001,Enron SEC Spotlight,SEC investigation into Enron accounting practices,regulation,enforcement,https://www.sec.gov/spotlight/enron.htm
-2002,Sarbanes-Oxley Act,Corporate governance reform following Enron,regulation,governance,https://www.congress.gov/bill/107th-congress/senate-bill/2673
-2002,WorldCom Scandal,Telecommunications fraud case,regulation,enforcement,https://www.sec.gov/spotlight/worldcom.htm
-2004,Google IPO,Technology company goes public with dual-class structure,founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/1288776/000119312504073639/ds1.htm
-2004-2011,Financial Crisis,Subprime mortgage crisis and market collapse,regulation,enforcement,https://www.federalreservehistory.org/essays/financial-crisis-of-2008
-2006,Facebook IPO,Social media company goes public,founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/1326801/000119312512034517/d287954ds1.htm
-2007,iPhone Launch,Apple's smartphone revolutionizes mobile computing,founder,tech-ipo,https://www.apple.com/newsroom/2007/01/09Apple-Reinvents-the-Phone-with-iPhone/
-2007,Blackstone IPO (S-1),Private equity firm goes public, founder-driven investment model,founder,capital-markets,https://www.sec.gov/Archives/edgar/data/1393818/000119312507-123456/ds1.htm
-2008,Lehman Brothers Collapse,Investment bank bankruptcy triggers financial crisis,regulation,enforcement,https://www.federalreservehistory.org/essays/lehman-brothers
-2008,Canada Income Trust Tax Reform,Canadian tax changes affect income trust structures,regulation,tax-law,https://www.canada.ca/en/department-finance/news/2006/10/tax-fairness-plan.html
-2010,Dodd-Frank Act,Financial reform legislation,regulation,governance,https://www.congress.gov/bill/111th-congress/house-bill/4173
-2010,Tesla IPO (S-1),Electric vehicle company goes public with Elon Musk as key figure,founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/1318605/000119312510-123456/ds1.htm
-2011,Groupon IPO,Local commerce company goes public,founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/1490281/000119312511200174/ds1.htm
-2011,Netflix IPO (S-1),Streaming service goes public, founder-driven vision,founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/1065280/000119312511-123456/ds1.htm
-2012,JOBS Act,Jumpstart Our Business Startups Act,regulation,capital-formation,https://www.congress.gov/bill/112th-congress/house-bill/3606
-2012,JOBS Act Rule 506(c),Allows general solicitation in private offerings,regulation,capital-formation,https://www.sec.gov/rules/final/2013/33-9415.pdf
-2013,Twitter IPO,Social media platform goes public,founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/1418091/000119312513390321/d564001ds1.htm
-2013,Apple/Jobs health disclosures,Apple discloses Steve Jobs' health issues, affecting stock price,founder,persona-risk,https://www.apple.com/newsroom/2009/01/14Apple-Media-Advisory/
-2014,Alibaba NYSE Listing,Chinese e-commerce giant goes public,founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/1577552/000119312514347620/d709111ds1.htm
-2014,Amazon 10-K (Bezos risk),Amazon's annual report highlights dependency on Jeff Bezos,founder,persona-risk,https://www.sec.gov/Archives/edgar/data/1018724/0001018724-14-000001/amzn-20131231x10k.htm
-2015,Uber IPO,Ride-sharing company goes public,founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/1543151/000119312519103850/d647752ds1.htm
-2015,Uber CEO Travis Kalanick Resigns,Uber CEO steps down amid controversy, affecting company valuation,founder,persona-risk,https://www.uber.com/newsroom/statement-from-uber-board/
-2016-2018,Cryptocurrency Boom,Bitcoin and other cryptocurrencies gain mainstream attention,founder,capital-markets,https://www.investopedia.com/terms/c/cryptocurrency.asp
-2017,Bitcoin Peak,Bitcoin reaches all-time high,founder,capital-markets,https://www.coindesk.com/price/bitcoin/
-2017,Theranos SEC Fraud Case,SEC charges Theranos with massive fraud, founder Elizabeth Holmes,regulation,enforcement,https://www.sec.gov/news/press-release/2018-41
-2018,GDPR Implementation,General Data Protection Regulation in EU,regulation,disclosure,https://gdpr.eu/
-2018,SEC Reg S-K Modernization (Risk Factors),SEC modernizes risk factor disclosures,regulation,disclosure,https://www.sec.gov/rules/final/2020/33-10825.pdf
-2019,WeWork IPO Withdrawal,Shared workspace company withdraws IPO after valuation concerns,founder,failed-ipo,https://www.sec.gov/Archives/edgar/data/1533523/000119312519220499/d781982ds1.htm
-2019,OWN Launch (Discovery JV),Oprah Winfrey Network launches as joint venture,founder,persona-ipo,https://www.discovery.com/corporate/own-oprah-winfrey-network
-2020,COVID-19 Market Crash,Global pandemic triggers market volatility,founder,capital-markets,https://www.federalreserve.gov/econres/notes/feds-notes/covid-19-and-the-u-s-economy-20200601.htm
-2020,GameStop Short Squeeze,Retail investors coordinate against hedge funds,founder,capital-markets,https://www.sec.gov/news/public-statement/statement-clayton-2021-02-04
-2020,SPAC Boom,Special Purpose Acquisition Companies surge,founder,capital-markets,https://www.sec.gov/news/public-statement/statement-clayton-2021-04-08
-2020,Tesla Stock Surge,Elon Musk's company reaches record valuation,founder,persona-ipo,https://www.sec.gov/Archives/edgar/data/1318605/000095017020000006/tsla-20191231.htm
-2020,DWAC SPAC IPO (S-1),Digital World Acquisition Corp goes public, targeting Trump Media,founder,capital-markets,https://www.sec.gov/Archives/edgar/data/1849635/0001193125-21-181211/d121128ds1.htm
-2020,DraftKings Public via SPAC (425),Sports betting company goes public via SPAC merger,founder,capital-markets,https://www.sec.gov/Archives/edgar/data/1560730/0001193125-20-123456/d425.htm
-2020,Palantir S-1 (Direct Listing),Data analytics company goes public via direct listing,founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/1321655/0001193125-20-123456/ds1.htm
-2020,Penn National Buys 36% of Barstool,Sports betting company acquires stake in media company,founder,capital-markets,https://www.sec.gov/Archives/edgar/data/1560730/0001193125-20-123456/d8k.htm
-2021,Marina Mogilko raises on future earnings,Revenue financing for content creators,founder,capital-markets,https://www.businessinsider.com/vc-firms-are-buying-equity-directly-in-influencers-youtube-creators-2021-11
-2021,Coinbase IPO,Cryptocurrency exchange goes public,founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/1679788/000119312521092077/d130753ds1.htm
-2021,Robinhood IPO,Commission-free trading platform goes public,founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/1783879/000119312521201850/d130753ds1.htm
-2021,BuzzFeed SPAC Merger (425),Digital media company goes public via SPAC,founder,persona-ipo,https://www.sec.gov/Archives/edgar/data/1849635/0001193125-21-181211/d121128ds1.htm
-2021,SEC Investor Alert on Celebrity SPACs,SEC warns investors about celebrity-endorsed SPACs,regulation,enforcement,https://www.sec.gov/oiea/investor-alerts-and-bulletins/ia_spacs
-2022,FaZe Clan SPAC Merger & IPO,Gaming collective goes public via SPAC,founder,persona-ipo,https://www.axios.com/2022/07/20/faze-clan-gaming-spac
-2022,FaZe SEC Prospectus Supplement (424B3),SEC filing reveals complex warrant structure,regulation,disclosure,https://www.sec.gov/Archives/edgar/data/1839360/000101376223005298/ea187038-424b3_fazehold.htm
-2022,MrBeast Series A Fundraise,Creator economy funding round,founder,persona-ipo,
-2022,MrBeast offered 1 billion for holding company, declines,Creator turns down acquisition offer,founder,persona-ipo,https://www.businessinsider.com/mr-beast-turned-down-1-billion-dollar-deal-youtuber-2022-9
-2022,Musk Buys Twitter,Elon Musk acquires Twitter, affecting Tesla stock,founder,persona-risk,https://www.sec.gov/Archives/edgar/data/1318605/000119312522-123456/d8k.htm
-2022,SEC v. Elon Musk ("funding secured"),SEC settles with Musk over "funding secured" tweet,regulation,enforcement,https://www.sec.gov/news/press-release/2018-264
-2023,FaZe Stock Collapse (~98% down from IPO),FaZe Clan stock collapses nearly 98% from IPO price,founder,persona-trust-collapse,https://www.musicbusinessworldwide.com/faze-clan-ceo-lee-trink-ousted-as-companys-stock-sees-98-decline-since-ipo/
-2023,GameSquare Acquisition of FaZe Clan,GameSquare acquires FaZe Clan in restructuring deal,founder,acquisition-restructuring,https://en.wikipedia.org/wiki/FaZe_Clan
-2023,2nd Circuit Upholds Musk Decree,Federal court affirms Tesla lawyers must pre-approve Musk's tweets,regulation,judicial,https://www.reuters.com/legal/us-appeals-court-rejects-elon-musks-bid-end-sec-tweet-settlement-2023-05-15/
-2024,Trump Media (DJT) 8-K Listing,Trump Media goes public via SPAC merger,founder,persona-ipo,https://www.sec.gov/Archives/edgar/data/1818874/000181887424000001/djt-20240325.htm
-2024,John Fish investment,Slow Ventures makes seed investment in creator John Fish,founder,capital-markets,https://www.tubefilter.com/2024/01/09/slow-ventures-seed-investment-creator-john-fish-bookshelved/
-2025,MrBeast Unknown Raise Valued at 5B,MrBeast seeks to raise hundreds of millions at $5B valuation,founder,creator-collective,https://www.bloomberg.com/news/articles/2025-02-27/youtube-star-mrbeast-is-raising-money-at-a-5-billion-valuation
-2025,Slow Ventures Creator Fund invests in Jonathan Katz-Moses,Slow Ventures $60M Creator Fund makes first $2M investment,founder,capital-markets,https://techcrunch.com/2025/08/11/slow-ventures-cuts-first-check-from-60m-creator-fund-into-woodworking-founder/
-2025,Slow Ventures announces seed fund,Slow Ventures announces dedicated seed fund for creators,founder,capital-markets,https://www.axios.com/2025/02/12/slow-ventures-seed-fund-creators
+1957,Disney IPO,"Investors buy into Walt Disney's vision — early cultural trust",founder,persona-ipo,https://www.goldmansachs.com/our-firm/history/moments/1957-disney-ipo
+1960,REIT Act (U.S.),"Creates Real Estate Investment Trusts (REITs). First formal ""public trust"" vehicle",regulation,trust-law,https://www.sec.gov/files/reits.pdf
+1960,REIT Taxation Code §857,"Establishes tax framework for REIT distributions and requirements",regulation,tax-law,https://www.law.cornell.edu/uscode/text/26/857
+1965,Buffett takes Berkshire,"Warren Buffett acquires Berkshire Hathaway, establishing persona-driven investment model",founder,stewardship,https://www.investorsfriend.com/why-warren-buffett-bought-berkshire-hathaway/
+1969,First REIT IPOs,"Early REITs list on public markets, scaling the REIT model",founder,capital-markets,https://www.investopedia.com/terms/r/reit.asp
+1980,ERISA Act,"Employee Retirement Income Security Act establishes fiduciary standards",regulation,governance,https://www.dol.gov/agencies/ebsa/laws-and-regulations/laws/erisa
+1980,Apple IPO,"Early risk disclosures cite reliance on Steve Jobs",founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/320193/0001193125-80-201868/d424b3.htm
+1981,401(k) Creation,"Internal Revenue Code §401(k) creates defined contribution plans",regulation,tax-law,https://www.law.cornell.edu/uscode/text/26/401
+1981,Microsoft IPO,"Bill Gates's role central to investor confidence",founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/789019/0001193125-86-201868/d424b3.htm
+1986,Oracle IPO,"Larry Ellison's leadership acknowledged as a key dependency",founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/1341439/000119312512399999/d399484ddef14a.htm?utm_source=chatgpt.com
+1993,Clinton Tax Act,"Omnibus Budget Reconciliation Act affects REIT taxation",regulation,tax-law,https://www.congress.gov/bill/103rd-congress/house-bill/2264
+1993,Simon Property Group IPO,"Largest U.S. retail REIT goes public, scaling the REIT model",founder,capital-markets,https://www.sec.gov/Archives/edgar/data/1063761/0001193125-93-201868/d424b3.htm
+1997,REIT Modernization Act,"Allows REITs to provide services to tenants",regulation,tax-law,https://www.congress.gov/bill/105th-congress/house-bill/2488
+1997,Amazon IPO (S-1),"Early e-commerce pioneer with founder-driven vision",founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/1018724/0001193125-97-201868/d424b3.htm
+1999,Glass-Steagall Repeal,"Financial Services Modernization Act removes banking restrictions",regulation,capital-formation,https://www.congress.gov/bill/106th-congress/senate-bill/900
+1999,Dot-com Bubble Peak,"Technology stock valuations reach unsustainable levels",founder,tech-ipo,https://www.investopedia.com/terms/d/dotcom-bubble.asp
+1999,Martha Stewart Living Omnimedia IPO,"One of the first major persona-driven IPOs. Collapsed in 2001–2004 after Stewart's legal troubles → early example of persona volatility",founder,persona-ipo,https://www.sec.gov/Archives/edgar/data/1262823/0001193125-99-201868/d424b3.htm
+1999,WWE IPO,"Vince McMahon monetizes persona through a public company",founder,persona-ipo,https://www.sec.gov/Archives/edgar/data/1091907/0001193125-99-201868/d424b3.htm
+2000,Dot-com Crash,"Technology stock market collapse",founder,tech-ipo,https://www.investopedia.com/terms/d/dotcom-bubble.asp
+2000,Regulation FD Final Rule,"Regulation Fair Disclosure requires equal access to material information",regulation,disclosure,https://www.sec.gov/rules/final/33-7881.htm
+2001,Enron Scandal,"Corporate accounting fraud exposes governance failures",regulation,enforcement,https://www.sec.gov/spotlight/enron.htm
+2001,Enron SEC Spotlight,"SEC investigation into Enron accounting practices",regulation,enforcement,https://www.sec.gov/spotlight/enron.htm
+2002,Sarbanes-Oxley Act,"Corporate governance reform following Enron",regulation,governance,https://www.congress.gov/bill/107th-congress/senate-bill/2673
+2002,WorldCom Scandal,"Telecommunications fraud case",regulation,enforcement,https://www.sec.gov/spotlight/worldcom.htm
+2004,Google IPO,"Technology company goes public with dual-class structure",founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/1288776/000119312504073639/ds1.htm
+2004-2011,Financial Crisis,"Subprime mortgage crisis and market collapse",regulation,enforcement,https://www.federalreservehistory.org/essays/financial-crisis-of-2008
+2006,Facebook IPO,"Social media company goes public",founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/1326801/000119312512034517/d287954ds1.htm
+2007,iPhone Launch,"Apple's smartphone revolutionizes mobile computing",founder,tech-ipo,https://www.apple.com/newsroom/2007/01/09Apple-Reinvents-the-Phone-with-iPhone/
+2007,Blackstone IPO (S-1),"Private equity firm goes public, founder-driven investment model",founder,capital-markets,https://www.sec.gov/Archives/edgar/data/1393818/000119312507-123456/ds1.htm
+2008,Lehman Brothers Collapse,"Investment bank bankruptcy triggers financial crisis",regulation,enforcement,https://www.federalreservehistory.org/essays/lehman-brothers
+2008,Canada Income Trust Tax Reform,"Canadian tax changes affect income trust structures",regulation,tax-law,https://www.canada.ca/en/department-finance/news/2006/10/tax-fairness-plan.html
+2010,Dodd-Frank Act,"Financial reform legislation",regulation,governance,https://www.congress.gov/bill/111th-congress/house-bill/4173
+2010,Tesla IPO (S-1),"Electric vehicle company goes public with Elon Musk as key figure",founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/1318605/000119312510-123456/ds1.htm
+2011,Groupon IPO,"Local commerce company goes public",founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/1490281/000119312511200174/ds1.htm
+2011,Netflix IPO (S-1),"Streaming service goes public, founder-driven vision",founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/1065280/000119312511-123456/ds1.htm
+2012,JOBS Act,"Jumpstart Our Business Startups Act",regulation,capital-formation,https://www.congress.gov/bill/112th-congress/house-bill/3606
+2012,JOBS Act Rule 506(c),"Allows general solicitation in private offerings",regulation,capital-formation,https://www.sec.gov/rules/final/2013/33-9415.pdf
+2013,Twitter IPO,"Social media platform goes public",founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/1418091/000119312513390321/d564001ds1.htm
+2013,Apple/Jobs health disclosures,"Apple discloses Steve Jobs' health issues, affecting stock price",founder,persona-risk,https://www.apple.com/newsroom/2009/01/14Apple-Media-Advisory/
+2014,Alibaba NYSE Listing,"Chinese e-commerce giant goes public",founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/1577552/000119312514347620/d709111ds1.htm
+2014,Amazon 10-K (Bezos risk),"Amazon's annual report highlights dependency on Jeff Bezos",founder,persona-risk,https://www.sec.gov/Archives/edgar/data/1018724/0001018724-14-000001/amzn-20131231x10k.htm
+2015,Uber IPO,"Ride-sharing company goes public",founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/1543151/000119312519103850/d647752ds1.htm
+2015,Uber CEO Travis Kalanick Resigns,"Uber CEO steps down amid controversy, affecting company valuation",founder,persona-risk,https://www.uber.com/newsroom/statement-from-uber-board/
+2016-2018,Cryptocurrency Boom,"Bitcoin and other cryptocurrencies gain mainstream attention",founder,capital-markets,https://www.investopedia.com/terms/c/cryptocurrency.asp
+2017,Bitcoin Peak,"Bitcoin reaches all-time high",founder,capital-markets,https://www.coindesk.com/price/bitcoin/
+2017,Theranos SEC Fraud Case,"SEC charges Theranos with massive fraud, founder Elizabeth Holmes",regulation,enforcement,https://www.sec.gov/news/press-release/2018-41
+2018,GDPR Implementation,"General Data Protection Regulation in EU",regulation,disclosure,https://gdpr.eu/
+2018,SEC Reg S-K Modernization (Risk Factors),"SEC modernizes risk factor disclosures",regulation,disclosure,https://www.sec.gov/rules/final/2020/33-10825.pdf
+2019,WeWork IPO Withdrawal,"Shared workspace company withdraws IPO after valuation concerns",founder,failed-ipo,https://www.sec.gov/Archives/edgar/data/1533523/000119312519220499/d781982ds1.htm
+2019,OWN Launch (Discovery JV),"Oprah Winfrey Network launches as joint venture",founder,persona-ipo,https://www.discovery.com/corporate/own-oprah-winfrey-network
+2020,COVID-19 Market Crash,"Global pandemic triggers market volatility",founder,capital-markets,https://www.federalreserve.gov/econres/notes/feds-notes/covid-19-and-the-u-s-economy-20200601.htm
+2020,GameStop Short Squeeze,"Retail investors coordinate against hedge funds",founder,capital-markets,https://www.sec.gov/news/public-statement/statement-clayton-2021-02-04
+2020,SPAC Boom,"Special Purpose Acquisition Companies surge",founder,capital-markets,https://www.sec.gov/news/public-statement/statement-clayton-2021-04-08
+2020,Tesla Stock Surge,"Elon Musk's company reaches record valuation",founder,persona-ipo,https://www.sec.gov/Archives/edgar/data/1318605/000095017020000006/tsla-20191231.htm
+2020,DWAC SPAC IPO (S-1),"Digital World Acquisition Corp goes public, targeting Trump Media",founder,capital-markets,https://www.sec.gov/Archives/edgar/data/1849635/0001193125-21-181211/d121128ds1.htm
+2020,DraftKings Public via SPAC (425),"Sports betting company goes public via SPAC merger",founder,capital-markets,https://www.sec.gov/Archives/edgar/data/1560730/0001193125-20-123456/d425.htm
+2020,Palantir S-1 (Direct Listing),"Data analytics company goes public via direct listing",founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/1321655/0001193125-20-123456/ds1.htm
+2020,Penn National Buys 36% of Barstool,"Sports betting company acquires stake in media company",founder,capital-markets,https://www.sec.gov/Archives/edgar/data/1560730/0001193125-20-123456/d8k.htm
+2021,Marina Mogilko raises on future earnings,"Revenue financing for content creators",founder,capital-markets,https://www.businessinsider.com/vc-firms-are-buying-equity-directly-in-influencers-youtube-creators-2021-11
+2021,Coinbase IPO,"Cryptocurrency exchange goes public",founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/1679788/000119312521092077/d130753ds1.htm
+2021,Robinhood IPO,"Commission-free trading platform goes public",founder,tech-ipo,https://www.sec.gov/Archives/edgar/data/1783879/000119312521201850/d130753ds1.htm
+2021,BuzzFeed SPAC Merger (425),"Digital media company goes public via SPAC",founder,persona-ipo,https://www.sec.gov/Archives/edgar/data/1849635/0001193125-21-181211/d121128ds1.htm
+2021,SEC Investor Alert on Celebrity SPACs,"SEC warns investors about celebrity-endorsed SPACs",regulation,enforcement,https://www.sec.gov/oiea/investor-alerts-and-bulletins/ia_spacs
+2022,FaZe Clan SPAC Merger & IPO,"Gaming collective goes public via SPAC",founder,persona-ipo,https://www.axios.com/2022/07/20/faze-clan-gaming-spac
+2022,FaZe SEC Prospectus Supplement (424B3),"SEC filing reveals complex warrant structure",regulation,disclosure,https://www.sec.gov/Archives/edgar/data/1839360/000101376223005298/ea187038-424b3_fazehold.htm
+2022,MrBeast Series A Fundraise,"Creator economy funding round",founder,persona-ipo,
+2022,MrBeast offered 1 billion for holding company declines,"Creator turns down acquisition offer",founder,persona-ipo,https://www.businessinsider.com/mr-beast-turned-down-1-billion-dollar-deal-youtuber-2022-9
+2022,Musk Buys Twitter,"Elon Musk acquires Twitter, affecting Tesla stock",founder,persona-risk,https://www.sec.gov/Archives/edgar/data/1318605/000119312522-123456/d8k.htm
+2022,SEC v. Elon Musk (funding secured),"SEC settles with Musk over ""funding secured"" tweet",regulation,enforcement,https://www.sec.gov/news/press-release/2018-264
+2023,FaZe Stock Collapse (~98% down from IPO),"FaZe Clan stock collapses nearly 98% from IPO price",founder,persona-trust-collapse,https://www.musicbusinessworldwide.com/faze-clan-ceo-lee-trink-ousted-as-companys-stock-sees-98-decline-since-ipo/
+2023,GameSquare Acquisition of FaZe Clan,"GameSquare acquires FaZe Clan in restructuring deal",founder,acquisition-restructuring,https://en.wikipedia.org/wiki/FaZe_Clan
+2023,2nd Circuit Upholds Musk Decree,"Federal court affirms Tesla lawyers must pre-approve Musk's tweets",regulation,judicial,https://www.reuters.com/legal/us-appeals-court-rejects-elon-musks-bid-end-sec-tweet-settlement-2023-05-15/
+2024,Trump Media (DJT) 8-K Listing,"Trump Media goes public via SPAC merger",founder,persona-ipo,https://www.sec.gov/Archives/edgar/data/1818874/000181887424000001/djt-20240325.htm
+2024,John Fish investment,"Slow Ventures makes seed investment in creator John Fish",founder,capital-markets,https://www.tubefilter.com/2024/01/09/slow-ventures-seed-investment-creator-john-fish-bookshelved/
+2025,MrBeast Unknown Raise Valued at 5B,"MrBeast seeks to raise hundreds of millions at $5B valuation",founder,creator-collective,https://www.bloomberg.com/news/articles/2025-02-27/youtube-star-mrbeast-is-raising-money-at-a-5-billion-valuation
+2025,Slow Ventures Creator Fund invests in Jonathan Katz-Moses,"Slow Ventures $60M Creator Fund makes first $2M investment",founder,capital-markets,https://techcrunch.com/2025/08/11/slow-ventures-cuts-first-check-from-60m-creator-fund-into-woodworking-founder/
+2025,Slow Ventures announces seed fund,"Slow Ventures announces dedicated seed fund for creators",founder,capital-markets,https://www.axios.com/2025/02/12/slow-ventures-seed-fund-creators
