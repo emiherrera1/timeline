@@ -3,754 +3,520 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evolution of Trust-Based Investments</title>
-    <link rel="stylesheet" href="styles.css">
-    
+    <title>Trust-Based Investment Timeline</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            color: #00ff00;
+        }
+
+        .search-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .search-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            background: #111;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #00ff00;
+        }
+
+        .search-btn, .clear-btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .search-btn {
+            background: #00ff00;
+            color: #000;
+        }
+
+        .clear-btn {
+            background: #ff6b35;
+            color: #fff;
+        }
+
+        .filter-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: 2px solid #333;
+            border-radius: 25px;
+            background: #111;
+            color: #fff;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background: #00ff00;
+            color: #000;
+            border-color: #00ff00;
+        }
+
+        .subcategory-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .subcategory-btn {
+            padding: 8px 16px;
+            border: 1px solid #444;
+            border-radius: 20px;
+            background: #222;
+            color: #ccc;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .subcategory-btn.active {
+            background: #ffff00;
+            color: #000;
+            border-color: #ffff00;
+        }
+
+        .timeline {
+            position: relative;
+        }
+
+        .timeline-section {
+            margin-bottom: 60px;
+        }
+
+        .timeline-year {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00ff00;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .timeline-events {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .event-card {
+            background: #000;
+            border: 2px solid #333;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .event-card:hover {
+            border-color: #00ff00;
+            transform: translateY(-2px);
+        }
+
+        .event-card.highlighted {
+            border-color: #ffff00;
+            background: #111;
+        }
+
+        .event-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .event-description {
+            color: #ccc;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .event-meta {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .category-tag {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .category-founder { background: #00ff00; color: #000; }
+        .category-regulation { background: #0066ff; color: #fff; }
+
+        .source-btn {
+            padding: 8px 16px;
+            background: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 12px;
+            transition: background 0.3s ease;
+        }
+
+        .source-btn:hover {
+            background: #555;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #00ff00;
+            font-size: 1.2rem;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .search-container {
+                flex-direction: column;
+            }
+            
+            .filter-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="timeline-container">
-        <header class="timeline-header">
-            <h1>Evolution of Trust-Based Investments</h1>
-            <p>From Traditional Assets to Persona-Driven Markets</p>
-            <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search by company, year, or keyword..." class="search-input">
-            <button type="button" id="searchButton" class="search-button">Search</button>
-            <button type="button" id="clearButton" class="clear-button">Clear</button>
-        </div>
-        <div class="filter-buttons">
-            <div class="main-filter-buttons">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <div class="filter-group">
-                    <button class="filter-btn main-filter" data-filter="founder">Founder-Related</button>
-                    <div class="subcategory-buttons" id="founder-subcategories">
-                        <button class="subcategory-btn" data-filter="persona-ipo">Persona IPO</button>
-                        <button class="subcategory-btn" data-filter="tech-ipo">Tech IPO</button>
-                        <button class="subcategory-btn" data-filter="stewardship">Stewardship</button>
-                        <button class="subcategory-btn" data-filter="capital-markets">Capital Markets</button>
-                        <button class="subcategory-btn" data-filter="governance-failure">Governance Failure</button>
-                        <button class="subcategory-btn" data-filter="failed-ipo">Failed IPO</button>
-                        <button class="subcategory-btn" data-filter="persona-takeover">Persona Takeover</button>
-                        
-                </div>
-                <div class="filter-group">
-                    <button class="filter-btn main-filter" data-filter="regulation">Regulation-Related</button>
-                    <div class="subcategory-buttons" id="regulation-subcategories">
-                        <button class="subcategory-btn" data-filter="trust-law">Trust Law</button>
-                        <button class="subcategory-btn" data-filter="tax-law">Tax Law</button>
-                        <button class="subcategory-btn" data-filter="disclosure">Disclosure</button>
-                        <button class="subcategory-btn" data-filter="enforcement">Enforcement</button>
-                        <button class="subcategory-btn" data-filter="governance">Governance</button>
-                        <button class="subcategory-btn" data-filter="capital-formation">Capital Formation</button>
-                        <button class="subcategory-btn" data-filter="judicial">Judicial</button>
-                        
-                </div>
-            </div>
-        </header>
-
-        <div class="timeline">
-            <!-- 1950s-1960s Section -->
-            <div class="timeline-section" data-era="1950s-1960s">
-                <div class="timeline-marker">
-                    <div class="marker-dot"></div>
-                    <div class="marker-line"></div>
-                </div>
-                <div class="timeline-content">
-                    <div class="era-header">
-                        <h2>1950s–1960s</h2>
-                        <span class="era-subtitle">Foundation Era</span>
-                        <div class="event" data-category="founder" data-subcategory="persona-ipo">
-                                    <div class="subcategory-tag persona-ipo">Persona IPO</div>
-                                    <a href="https://www.sec.gov/Archives/edgar/data/1818874/000181887424000001/djt-20240325.htm" class="source-btn" target="_blank">Source</a>
-                                </div>
-                                <p>Trump Media goes public via SPAC merger, trading as DJT with massive retail investor interest.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="capital-markets">
-                                    <div class="subcategory-tag capital-markets">Capital Markets</div>
-                                    <a href="https://www.tubefilter.com/2024/01/09/slow-ventures-seed-investment-creator-john-fish-bookshelved/" class="source-btn" target="_blank">Source</a>
-                                </div>
-                                <p>Slow Ventures makes seed investment in creator John Fish, expanding creator economy portfolio.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-events">
-                        <div class="event" data-category="founder" data-subcategory="persona-ipo">
-                            <div class="event-year">1957</div>
-                            <div class="event-content">
-                                <h3>Disney IPO</h3>
-                                <div class="tags-container"><div class="category-tag persona-ipo">Persona IPO</div>
-                                <div class="subcategory-tag media">Media</div>
-                                <a href="https://www.goldmansachs.com/our-firm/history/moments/1957-disney-ipo" class="source-btn" target="_blank">Source</a></div>
-                                <p>Investors buy into Walt Disney's vision — early cultural trust.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="regulation" data-subcategory="trust-law">
-                            <div class="event-year">1960</div>
-                            <div class="event-content">
-                                <h3>REIT Act (U.S.)</h3>
-                                <div class="tags-container"><div class="category-tag trust-law">Trust Law</div>
-                                <div class="subcategory-tag asset-based">Asset-Based</div>
-                                <a href="https://www.sec.gov/files/reits.pdf" class="source-btn" target="_blank">Source</a></div>
-                                <p>Creates Real Estate Investment Trusts (REITs). First formal "public trust" vehicle.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="regulation" data-subcategory="tax-law">
-                            <div class="event-year">1960</div>
-                            <div class="event-content">
-                                <h3>REIT Taxation Code §857</h3>
-                                <div class="tags-container"><div class="category-tag tax-law">Tax Law</div>
-                                <div class="subcategory-tag reit-taxation">REIT Taxation</div>
-                                <a href="https://www.law.cornell.edu/uscode/text/26/857" class="source-btn" target="_blank">Source</a></div>
-                                <p>Establishes tax framework for REIT distributions and requirements.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="stewardship">
-                            <div class="event-year">1965</div>
-                            <div class="event-content">
-                                <h3>Buffett takes Berkshire</h3>
-                                <div class="tags-container"><div class="category-tag stewardship">Stewardship</div>
-                                <div class="subcategory-tag managerial-trust">Managerial Trust</div>
-                                <a href="https://www.investorsfriend.com/why-warren-buffett-bought-berkshire-hathaway/" class="source-btn" target="_blank">Source</a></div>
-                                <p>Buffett acquires Berkshire, turning it into the archetype of a shareholder trust in a single allocator.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="capital-markets">
-                            <div class="event-year">1969</div>
-                            <div class="event-content">
-                                <h3>First REIT IPOs</h3>
-                                <div class="tags-container"><div class="category-tag capital-markets">Capital Markets</div>
-                                <div class="subcategory-tag reit-scaling">REIT Scaling</div>
-                                <a href="https://www.reit.com/what-reit/history-reits" class="source-btn" target="_blank">Source</a></div>
-                                <p>Early REITs list on public markets, scaling the REIT model.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="persona-ipo">
-                                    <div class="subcategory-tag persona-ipo">Persona IPO</div>
-                                    <a href="https://www.sec.gov/Archives/edgar/data/1818874/000181887424000001/djt-20240325.htm" class="source-btn" target="_blank">Source</a>
-                                </div>
-                                <p>Trump Media goes public via SPAC merger, trading as DJT with massive retail investor interest.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="capital-markets">
-                                    <div class="subcategory-tag capital-markets">Capital Markets</div>
-                                    <a href="https://www.tubefilter.com/2024/01/09/slow-ventures-seed-investment-creator-john-fish-bookshelved/" class="source-btn" target="_blank">Source</a>
-                                </div>
-                                <p>Slow Ventures makes seed investment in creator John Fish, expanding creator economy portfolio.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 1980s Section -->
-            <div class="timeline-section" data-era="1980s">
-                <div class="timeline-marker">
-                    <div class="marker-dot"></div>
-                    <div class="marker-line"></div>
-                </div>
-                <div class="timeline-content">
-                    <div class="era-header">
-                        <h2>1980s</h2>
-                        <span class="era-subtitle">Tech Founder Risk Era</span>
-                        <div class="event" data-category="founder" data-subcategory="persona-ipo">
-                                    <div class="subcategory-tag persona-ipo">Persona IPO</div>
-                                    <a href="https://www.sec.gov/Archives/edgar/data/1818874/000181887424000001/djt-20240325.htm" class="source-btn" target="_blank">Source</a>
-                                </div>
-                                <p>Trump Media goes public via SPAC merger, trading as DJT with massive retail investor interest.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="capital-markets">
-                                    <div class="subcategory-tag capital-markets">Capital Markets</div>
-                                    <a href="https://www.tubefilter.com/2024/01/09/slow-ventures-seed-investment-creator-john-fish-bookshelved/" class="source-btn" target="_blank">Source</a>
-                                </div>
-                                <p>Slow Ventures makes seed investment in creator John Fish, expanding creator economy portfolio.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-events">
-                        <div class="event" data-category="founder" data-subcategory="tech-ipo">
-                            <div class="event-year">1980</div>
-                            <div class="event-content">
-                                <h3>Apple IPO</h3>
-                                <div class="tags-container"><div class="category-tag tech-ipo">Tech IPO</div>
-                                <div class="subcategory-tag key-person">Key Person</div>
-                                <a href="https://www.investopedia.com/ask/answers/120314/what-was-ipo-price-apple-and-how-many-times-has-it-split.asp" class="source-btn" target="_blank">Source</a></div>
-                                <p>Early risk disclosures cite reliance on Steve Jobs.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="tech-ipo">
-                            <div class="event-year">1981</div>
-                            <div class="event-content">
-                                <h3>Microsoft IPO</h3>
-                                <div class="tags-container"><div class="category-tag tech-ipo">Tech IPO</div>
-                                <div class="subcategory-tag key-person">Key Person</div>
-                                <a href="https://www.nasdaq.com/articles/throwback-thursday-microsoft-goes-public-2016-03-10" class="source-btn" target="_blank">Source</a></div>
-                                <p>Bill Gates's role central to investor confidence.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="tech-ipo">
-                            <div class="event-year">1986</div>
-                            <div class="event-content">
-                                <h3>Oracle IPO</h3>
-                                <div class="tags-container"><div class="category-tag tech-ipo">Tech IPO</div>
-                                <div class="subcategory-tag key-person">Key Person</div>
-                                <a href="https://www.sec.gov/Archives/edgar/data/1341439/000119312512399999/d399484ddef14a.htm?utm_source=chatgpt.com" class="source-btn" target="_blank">Source</a></div>
-                                <p>Larry Ellison's leadership acknowledged as a key dependency.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="persona-ipo">
-                                    <div class="subcategory-tag persona-ipo">Persona IPO</div>
-                                    <a href="https://www.sec.gov/Archives/edgar/data/1818874/000181887424000001/djt-20240325.htm" class="source-btn" target="_blank">Source</a>
-                                </div>
-                                <p>Trump Media goes public via SPAC merger, trading as DJT with massive retail investor interest.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="capital-markets">
-                                    <div class="subcategory-tag capital-markets">Capital Markets</div>
-                                    <a href="https://www.tubefilter.com/2024/01/09/slow-ventures-seed-investment-creator-john-fish-bookshelved/" class="source-btn" target="_blank">Source</a>
-                                </div>
-                                <p>Slow Ventures makes seed investment in creator John Fish, expanding creator economy portfolio.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 1990s Section -->
-            <div class="timeline-section" data-era="1990s">
-                <div class="timeline-marker">
-                    <div class="marker-dot"></div>
-                    <div class="marker-line"></div>
-                </div>
-                <div class="timeline-content">
-                    <div class="era-header">
-                        <h2>1990s</h2>
-                        <span class="era-subtitle">Asset Trusts & Early Persona IPOs</span>
-                        <div class="event" data-category="founder" data-subcategory="persona-ipo">
-                                    <div class="subcategory-tag persona-ipo">Persona IPO</div>
-                                    <a href="https://www.sec.gov/Archives/edgar/data/1818874/000181887424000001/djt-20240325.htm" class="source-btn" target="_blank">Source</a>
-                                </div>
-                                <p>Trump Media goes public via SPAC merger, trading as DJT with massive retail investor interest.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="capital-markets">
-                                    <div class="subcategory-tag capital-markets">Capital Markets</div>
-                                    <a href="https://www.tubefilter.com/2024/01/09/slow-ventures-seed-investment-creator-john-fish-bookshelved/" class="source-btn" target="_blank">Source</a>
-                                </div>
-                                <p>Slow Ventures makes seed investment in creator John Fish, expanding creator economy portfolio.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-events">
-                        <div class="event" data-category="founder" data-subcategory="capital-markets">
-                            <div class="event-year">1993</div>
-                            <div class="event-content">
-                                <h3>Simon Property Group IPO</h3>
-                                <div class="tags-container"><div class="category-tag capital-markets">Capital Markets</div>
-                                <div class="subcategory-tag reit-ipo">REIT IPO</div>
-                                <a href="https://www.sec.gov/Archives/edgar/data/1063761/0000950130-95-000205.txt" class="source-btn" target="_blank">Source</a></div>
-                                <p>Largest U.S. retail REIT goes public, scaling the REIT model.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="tech-ipo">
-                            <div class="event-year">1997</div>
-                            <div class="event-content">
-                                <h3>Amazon IPO (S-1)</h3>
-                                <div class="tags-container"><div class="category-tag tech-ipo">Tech IPO</div>
-                                <div class="subcategory-tag key-person">Key Person</div>
-                                <a href="https://www.sec.gov/Archives/edgar/data/1018724/0000891020-97-000487.txt" class="source-btn" target="_blank">Source</a></div>
-                                <p>Early e-commerce pioneer with founder-driven vision.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="persona-ipo">
-                            <div class="event-year">1999</div>
-                            <div class="event-content">
-                                <h3>Martha Stewart Living Omnimedia IPO</h3>
-                                <div class="tags-container"><div class="category-tag persona-ipo">Persona IPO</div>
-                                <div class="subcategory-tag lifestyle">Lifestyle</div>
-                                <a href="https://www.sec.gov/Archives/edgar/data/1091801/0000950130-99-005622.txt" class="source-btn" target="_blank">Source</a></div>
-                                <p>One of the first major persona-driven IPOs. Collapsed in 2001–2004 after Stewart's legal troubles → early example of persona volatility.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="persona-ipo">
-                            <div class="event-year">1999</div>
-                            <div class="event-content">
-                                <h3>WWE IPO</h3>
-                                <div class="tags-container"><div class="category-tag persona-ipo">Persona IPO</div>
-                                <div class="subcategory-tag entertainment">Entertainment</div>
-                                <a href="https://www.sec.gov/Archives/edgar/data/1091907/0000950130-99-005812.txt" class="source-btn" target="_blank">Source</a></div>
-                                <p>Vince McMahon monetizes persona through a public company.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="persona-ipo">
-                                    <div class="subcategory-tag persona-ipo">Persona IPO</div>
-                                    <a href="https://www.sec.gov/Archives/edgar/data/1818874/000181887424000001/djt-20240325.htm" class="source-btn" target="_blank">Source</a>
-                                </div>
-                                <p>Trump Media goes public via SPAC merger, trading as DJT with massive retail investor interest.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="capital-markets">
-                                    <div class="subcategory-tag capital-markets">Capital Markets</div>
-                                    <a href="https://www.tubefilter.com/2024/01/09/slow-ventures-seed-investment-creator-john-fish-bookshelved/" class="source-btn" target="_blank">Source</a>
-                                </div>
-                                <p>Slow Ventures makes seed investment in creator John Fish, expanding creator economy portfolio.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2000s Section -->
-            <div class="timeline-section" data-era="2000s">
-                <div class="timeline-marker">
-                    <div class="marker-dot"></div>
-                    <div class="marker-line"></div>
-                </div>
-                <div class="timeline-content">
-                    <div class="era-header">
-                        <h2>2000s</h2>
-                        <span class="era-subtitle">Health Risk & Regulatory Evolution</span>
-                        <div class="event" data-category="founder" data-subcategory="persona-ipo">
-                                    <div class="subcategory-tag persona-ipo">Persona IPO</div>
-                                    <a href="https://www.sec.gov/Archives/edgar/data/1818874/000181887424000001/djt-20240325.htm" class="source-btn" target="_blank">Source</a>
-                                </div>
-                                <p>Trump Media goes public via SPAC merger, trading as DJT with massive retail investor interest.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="capital-markets">
-                                    <div class="subcategory-tag capital-markets">Capital Markets</div>
-                                    <a href="https://www.tubefilter.com/2024/01/09/slow-ventures-seed-investment-creator-john-fish-bookshelved/" class="source-btn" target="_blank">Source</a>
-                                </div>
-                                <p>Slow Ventures makes seed investment in creator John Fish, expanding creator economy portfolio.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-events">
-                        <div class="event" data-category="regulation" data-subcategory="disclosure">
-                            <div class="event-year">2000</div>
-                            <div class="event-content">
-                                <h3>Regulation FD Final Rule</h3>
-                                <div class="tags-container"><div class="category-tag disclosure">Disclosure</div>
-                                <div class="subcategory-tag fair-disclosure">Fair Disclosure</div>
-                                <a href="https://www.sec.gov/rules/final/33-7881.htm" class="source-btn" target="_blank">Source</a></div>
-                                <p>Establishes fair disclosure requirements for public companies.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="regulation" data-subcategory="enforcement">
-                            <div class="event-year">2001</div>
-                            <div class="event-content">
-                                <h3>Enron SEC Spotlight</h3>
-                                <div class="tags-container"><div class="category-tag enforcement">Enforcement</div>
-                                <div class="subcategory-tag fraud-case">Fraud Case</div>
-                                <a href="https://www.sec.gov/spotlight/enron.htm" class="source-btn" target="_blank">Source</a></div>
-                                <p>Major corporate fraud case that catalyzed regulatory reforms.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="regulation" data-subcategory="governance">
-                            <div class="event-year">2002</div>
-                            <div class="event-content">
-                                <h3>Sarbanes-Oxley Act</h3>
-                                <div class="tags-container"><div class="category-tag governance">Governance</div>
-                                <div class="subcategory-tag controls">Controls</div>
-                                <a href="https://www.sec.gov/about/laws/soa2002.pdf" class="source-btn" target="_blank">Source</a></div>
-                                <p>Major corporate governance and disclosure reform legislation.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="tech-ipo">
-                            <div class="event-year">2002</div>
-                            <div class="event-content">
-                                <h3>Netflix IPO (S-1)</h3>
-                                <div class="tags-container"><div class="category-tag tech-ipo">Tech IPO</div>
-                                <div class="subcategory-tag media-platform">Media Platform</div>
-                                <a href="https://www.sec.gov/Archives/edgar/data/1065280/000091205702024514/a2085723zs-1.htm" class="source-btn" target="_blank">Source</a></div>
-                                <p>Streaming pioneer goes public with founder-driven vision.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="tech-ipo">
-                            <div class="event-year">2004</div>
-                            <div class="event-content">
-                                <h3>Google IPO (S-1/A)</h3>
-                                <div class="tags-container"><div class="category-tag tech-ipo">Tech IPO</div>
-                                <div class="subcategory-tag dual-class">Dual-Class</div>
-                                <a href="https://www.sec.gov/Archives/edgar/data/1288776/0001193125-04-139655/ds1a.htm" class="source-btn" target="_blank">Source</a></div>
-                                <p>Risk factors highlight reliance on Page & Brin; dual-class structure.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="regulation" data-subcategory="disclosure">
-                            <div class="event-year">2004–2011</div>
-                            <div class="event-content">
-                                <h3>Apple/Jobs health disclosures</h3>
-                                <div class="tags-container"><div class="category-tag disclosure">Disclosure</div>
-                                <div class="subcategory-tag key-person-risk">Key Person Risk</div>
-                                <a href="https://www.nytimes.com/2009/01/15/technology/companies/15apple.html" class="source-btn" target="_blank">Source</a></div>
-                                <p>SEC filings: "The Company is highly dependent on its executive officers, including Steve Jobs…" Informal SEC scrutiny over adequacy of health disclosures.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="regulation" data-subcategory="tax-law">
-                            <div class="event-year">2006</div>
-                            <div class="event-content">
-                                <h3>Canada Income Trust Tax Reform</h3>
-                                <div class="tags-container"><div class="category-tag tax-law">Tax Law</div>
-                                <div class="subcategory-tag policy-change">Policy Change</div>
-                                <a href="https://www.fin.gc.ca/n06/data/06-061_1-eng.asp" class="source-btn" target="_blank">Source</a></div>
-                                <p>Canada ends preferential tax treatment for income trusts, collapsing sector.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="stewardship">
-                            <div class="event-year">2007</div>
-                            <div class="event-content">
-                                <h3>Blackstone IPO (S-1)</h3>
-                                <div class="tags-container"><div class="category-tag stewardship">Stewardship</div>
-                                <div class="subcategory-tag private-equity">Private Equity</div>
-                                <a href="https://www.sec.gov/Archives/edgar/data/1393818/0001047469-07-004906/a2178620zs-1.htm" class="source-btn" target="_blank">Source</a></div>
-                                <p>Private equity giant goes public, formalizing manager-based trust model.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="regulation" data-subcategory="enforcement">
-                            <div class="event-year">2008</div>
-                            <div class="event-content">
-                                <h3>Rule 10b-5 (Anti-Fraud)</h3>
-                                <div class="tags-container"><div class="category-tag enforcement">Enforcement</div>
-                                <div class="subcategory-tag anti-fraud">Anti-Fraud</div>
-                                <a href="https://www.law.cornell.edu/cfr/text/17/240.10b-5" class="source-btn" target="_blank">Source</a></div>
-                                <p>Core anti-fraud rule that applies to all securities disclosures.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="persona-ipo">
-                                    <div class="subcategory-tag persona-ipo">Persona IPO</div>
-                                    <a href="https://www.sec.gov/Archives/edgar/data/1818874/000181887424000001/djt-20240325.htm" class="source-btn" target="_blank">Source</a>
-                                </div>
-                                <p>Trump Media goes public via SPAC merger, trading as DJT with massive retail investor interest.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="capital-markets">
-                                    <div class="subcategory-tag capital-markets">Capital Markets</div>
-                                    <a href="https://www.tubefilter.com/2024/01/09/slow-ventures-seed-investment-creator-john-fish-bookshelved/" class="source-btn" target="_blank">Source</a>
-                                </div>
-                                <p>Slow Ventures makes seed investment in creator John Fish, expanding creator economy portfolio.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2010s Section -->
-            <div class="timeline-section" data-era="2010s">
-                <div class="timeline-marker">
-                    <div class="marker-dot"></div>
-                    <div class="marker-line"></div>
-                </div>
-                <div class="timeline-content">
-                    <div class="era-header">
-                        <h2>2010s</h2>
-                        <span class="era-subtitle">Persona Premium Era</span>
-                        <div class="event" data-category="founder" data-subcategory="persona-ipo">
-                                    <div class="subcategory-tag persona-ipo">Persona IPO</div>
-                                    <a href="https://www.sec.gov/Archives/edgar/data/1818874/000181887424000001/djt-20240325.htm" class="source-btn" target="_blank">Source</a>
-                                </div>
-                                <p>Trump Media goes public via SPAC merger, trading as DJT with massive retail investor interest.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="capital-markets">
-                                    <div class="subcategory-tag capital-markets">Capital Markets</div>
-                                    <a href="https://www.tubefilter.com/2024/01/09/slow-ventures-seed-investment-creator-john-fish-bookshelved/" class="source-btn" target="_blank">Source</a>
-                                </div>
-                                <p>Slow Ventures makes seed investment in creator John Fish, expanding creator economy portfolio.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-events">
-                        <div class="event" data-category="founder" data-subcategory="persona-ipo">
-                            <div class="event-year">2010</div>
-                            <div class="event-content">
-                                <h3>Tesla IPO (S-1)</h3>
-                                <div class="tags-container"><div class="category-tag persona-ipo">Persona IPO</div>
-                                <div class="subcategory-tag tech-musk">Tech Musk</div>
-                                <a href="https://www.sec.gov/Archives/edgar/data/1318605/0001193125-10-017054/ds1.htm" class="source-btn" target="_blank">Source</a></div>
-                                <p>S-1: "We are highly dependent on the services of Elon Musk…" Becomes the ultimate "faith stock."</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="persona-ipo">
-                            <div class="event-year">2011</div>
-                            <div class="event-content">
-                                <h3>OWN Launch (Discovery JV)</h3>
-                                <div class="tags-container"><div class="category-tag persona-ipo">Persona IPO</div>
-                                <div class="subcategory-tag media-oprah">Media Oprah</div>
-                                <a href="https://www.nytimes.com/2011/01/01/business/media/01oprah.html" class="source-btn" target="_blank">Source</a></div>
-                                <p>Oprah's brand formally tied to Discovery, a public company.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="tech-ipo">
-                            <div class="event-year">2012</div>
-                            <div class="event-content">
-                                <h3>Facebook IPO (S-1)</h3>
-                                <div class="tags-container"><div class="category-tag tech-ipo">Tech IPO</div>
-                                <div class="subcategory-tag dual-class">Dual-Class</div>
-                                <a href="https://www.sec.gov/Archives/edgar/data/1326801/0001193125-12-034517/d287954ds1.htm" class="source-btn" target="_blank">Source</a></div>
-                                <p>Risk factors cite dependence on Zuckerberg; dual-class shares entrench control.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="regulation" data-subcategory="capital-formation">
-                            <div class="event-year">2013</div>
-                            <div class="event-content">
-                                <h3>JOBS Act Rule 506(c)</h3>
-                                <div class="tags-container"><div class="category-tag capital-formation">Capital Formation</div>
-                                <div class="subcategory-tag crowdfunding">Crowdfunding</div>
-                                <a href="https://www.sec.gov/rules/final/2013/33-9415.pdf" class="source-btn" target="_blank">Source</a></div>
-                                <p>Reforms capital formation rules, enabling new funding mechanisms.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="persona-ipo">
-                            <div class="event-year">2014</div>
-                            <div class="event-content">
-                                <h3>Alibaba NYSE Listing</h3>
-                                <div class="tags-container"><div class="category-tag persona-ipo">Persona IPO</div>
-                                <div class="subcategory-tag commerce">Commerce</div>
-                                <a href="https://ir.theice.com/press/news-details/2014/Alibaba-Group-Celebrates-Initial-Public-Offering-and-First-Day-of-Trading-on-the-New-York-Stock-Exchange/default.aspx" class="source-btn" target="_blank">Source</a></div>
-                                <p>Jack Ma's persona central to record-breaking IPO.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="regulation" data-subcategory="disclosure">
-                            <div class="event-year">2015</div>
-                            <div class="event-content">
-                                <h3>Amazon 10-K (Bezos risk)</h3>
-                                <div class="tags-container"><div class="category-tag disclosure">Disclosure</div>
-                                <div class="subcategory-tag key-person-risk">Key Person Risk</div>
-                                <a href="https://www.sec.gov/Archives/edgar/data/1018724/0001018724-16-000178/amzn-20151231x10k.htm" class="source-btn" target="_blank">Source</a></div>
-                                <p>Key person risk disclosures highlight reliance on Bezos.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="regulation" data-subcategory="enforcement">
-                            <div class="event-year">2016–2018</div>
-                            <div class="event-content">
-                                <h3>Theranos SEC Fraud Case</h3>
-                                <div class="tags-container"><div class="category-tag enforcement">Enforcement</div>
-                                <div class="subcategory-tag persona-fraud">Persona Fraud</div>
-                                <a href="https://www.sec.gov/news/press-release/2018-41" class="source-btn" target="_blank">Source</a></div>
-                                <p>Elizabeth Holmes illustrates extreme downside of persona-trust.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="governance-failure">
-                            <div class="event-year">2017</div>
-                            <div class="event-content">
-                                <h3>Uber CEO Travis Kalanick Resigns</h3>
-                                <div class="tags-container"><div class="category-tag governance-failure">Governance Failure</div>
-                                <div class="subcategory-tag persona-risk">Persona Risk</div>
-                                <a href="https://www.reuters.com/article/us-uber-ceo-travis-idUSKBN19B2B2" class="source-btn" target="_blank">Source</a></div>
-                                <p>Travis Kalanick forced out after scandals; investors cite persona as liability.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="regulation" data-subcategory="enforcement">
-                            <div class="event-year">2018</div>
-                            <div class="event-content">
-                                <h3>SEC v. Elon Musk ("funding secured")</h3>
-                                <div class="tags-container"><div class="category-tag enforcement">Enforcement</div>
-                                <div class="subcategory-tag founder-speech">Founder Speech</div>
-                                <a href="https://www.sec.gov/news/press-release/2018-219" class="source-btn" target="_blank">Source</a></div>
-                                <p>Musk tweets about taking Tesla private at $420/share. SEC sues → $40M settlement, Musk removed as Tesla Chair, tweets require legal vetting.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="failed-ipo">
-                            <div class="event-year">2019</div>
-                            <div class="event-content">
-                                <h3>WeWork IPO Withdrawal</h3>
-                                <div class="tags-container"><div class="category-tag failed-ipo">Failed IPO</div>
-                                <div class="subcategory-tag persona-ipo">Persona IPO</div>
-                                <a href="https://www.reuters.com/article/us-wework-ipo-idUSKBN1W92OL" class="source-btn" target="_blank">Source</a></div>
-                                <p>Filing mocks dependency on Adam Neumann's vision; IPO collapses.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="persona-ipo">
-                                    <div class="subcategory-tag persona-ipo">Persona IPO</div>
-                                    <a href="https://www.sec.gov/Archives/edgar/data/1818874/000181887424000001/djt-20240325.htm" class="source-btn" target="_blank">Source</a>
-                                </div>
-                                <p>Trump Media goes public via SPAC merger, trading as DJT with massive retail investor interest.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="capital-markets">
-                                    <div class="subcategory-tag capital-markets">Capital Markets</div>
-                                    <a href="https://www.tubefilter.com/2024/01/09/slow-ventures-seed-investment-creator-john-fish-bookshelved/" class="source-btn" target="_blank">Source</a>
-                                </div>
-                                <p>Slow Ventures makes seed investment in creator John Fish, expanding creator economy portfolio.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2020s Section -->
-            <div class="timeline-section" data-era="2020s">
-                <div class="timeline-marker">
-                    <div class="marker-dot"></div>
-                    <div class="marker-line"></div>
-                </div>
-                <div class="timeline-content">
-                    <div class="era-header">
-                        <h2>2020s</h2>
-                        <span class="era-subtitle">SPACs & Regulatory Response</span>
-                        <div class="event" data-category="founder" data-subcategory="persona-ipo">
-                            <div class="event-year">2024</div>
-                            <div class="event-content">
-                                <h3>Trump Media (DJT) 8-K Listing</h3>
-                                <div class="tags-container">
-                                    <div class="category-tag founder">Founder-Related</div>
-                                    <div class="subcategory-tag persona-ipo">Persona IPO</div>
-                                    <a href="https://www.sec.gov/Archives/edgar/data/1818874/000181887424000001/djt-20240325.htm" class="source-btn" target="_blank">Source</a>
-                                </div>
-                                <p>Trump Media goes public via SPAC merger, trading as DJT with massive retail investor interest.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="capital-markets">
-                            <div class="event-year">2024</div>
-                            <div class="event-content">
-                                <h3>John Fish investment</h3>
-                                <div class="tags-container">
-                                    <div class="category-tag founder">Founder-Related</div>
-                                    <div class="subcategory-tag capital-markets">Capital Markets</div>
-                                    <a href="https://www.tubefilter.com/2024/01/09/slow-ventures-seed-investment-creator-john-fish-bookshelved/" class="source-btn" target="_blank">Source</a>
-                                </div>
-                                <p>Slow Ventures makes seed investment in creator John Fish, expanding creator economy portfolio.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-events">
-                        <div class="event" data-category="regulation" data-subcategory="disclosure">
-                            <div class="event-year">2020</div>
-                            <div class="event-content">
-                                <h3>SEC Reg S-K Modernization (Risk Factors)</h3>
-                                <div class="tags-container"><div class="category-tag disclosure">Disclosure</div>
-                                <div class="subcategory-tag modernization">Modernization</div>
-                                <a href="https://www.sec.gov/rules/final/2020/33-10825.pdf" class="source-btn" target="_blank">Source</a></div>
-                                <p>Modernizes risk factor disclosure requirements for public companies.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="persona-ipo">
-                            <div class="event-year">2020</div>
-                            <div class="event-content">
-                                <h3>Penn National Buys 36% of Barstool</h3>
-                                <div class="tags-container"><div class="category-tag persona-ipo">Persona IPO</div>
-                                <div class="subcategory-tag media">Media</div>
-                                <a href="https://www.pennentertainment.com/news-releases/news-release-details/penn-national-gaming-acquire-36-stake-barstool-sports" class="source-btn" target="_blank">Source</a></div>
-                                <p>Dave Portnoy's persona monetized via Penn's public company.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="capital-markets">
-                            <div class="event-year">2020</div>
-                            <div class="event-content">
-                                <h3>DraftKings Public via SPAC (425)</h3>
-                                <div class="tags-container"><div class="category-tag capital-markets">Capital Markets</div>
-                                <div class="subcategory-tag spac-listing">SPAC Listing</div>
-                                <a href="https://www.sec.gov/Archives/edgar/data/1812390/0001193125-20-109130/d91341d425.htm" class="source-btn" target="_blank">Source</a></div>
-                                <p>Sports betting company goes public via SPAC merger.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="tech-ipo">
-                            <div class="event-year">2020</div>
-                            <div class="event-content">
-                                <h3>Palantir S-1 (Direct Listing)</h3>
-                                <div class="tags-container"><div class="category-tag tech-ipo">Tech IPO</div>
-                                <div class="subcategory-tag direct-listing">Direct Listing</div>
-                                <a href="https://www.sec.gov/Archives/edgar/data/1321655/0001193125-20-228939/d938916ds1.htm" class="source-btn" target="_blank">Source</a></div>
-                                <p>Data analytics company goes public via direct listing with founder-driven vision.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="regulation" data-subcategory="enforcement">
-                            <div class="event-year">2021</div>
-                            <div class="event-content">
-                                <h3>SEC Investor Alert on Celebrity SPACs</h3>
-                                <div class="tags-container"><div class="category-tag enforcement">Enforcement</div>
-                                <div class="subcategory-tag investor-protection">Investor Protection</div>
-                                <a href="https://www.sec.gov/oiea/investor-alerts-and-bulletins/celebrity-spacs-investor-alert" class="source-btn" target="_blank">Source</a></div>
-                                <p>SEC issues guidance: "Do not invest just because a celebrity is involved."</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="capital-markets">
-                            <div class="event-year">2021</div>
-                            <div class="event-content">
-                                <h3>DWAC SPAC IPO (S-1)</h3>
-                                <div class="tags-container"><div class="category-tag capital-markets">Capital Markets</div>
-                                <div class="subcategory-tag spac-vehicle">SPAC Vehicle</div>
-                                <a href="https://www.sec.gov/Archives/edgar/data/1849635/0001193125-21-181211/d121128ds1.htm" class="source-btn" target="_blank">Source</a></div>
-                                <p>Blank-check company IPOs; sets stage for Trump Media.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="capital-markets">
-                            <div class="event-year">2021</div>
-                            <div class="event-content">
-                                <h3>Marina Mogilko raises on future earnings (revenue financing)</h3>
-                                <div class="tags-container"><div class="category-tag founder">Founder-Related</div>
-                                <div class="subcategory-tag capital-markets">Capital Markets</div>
-                                <a href="https://www.businessinsider.com/vc-firms-are-buying-equity-directly-in-influencers-youtube-creators-2021-11" class="source-btn" target="_blank">Source</a></div>
-                                <p>Slow Ventures invests $1.7M in YouTube creator Marina Mogilko for 5% of future earnings over 30 years, pioneering revenue-based financing for creators.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="persona-ipo">
-                            <div class="event-year">2021</div>
-                            <div class="event-content">
-                                <h3>BuzzFeed SPAC Merger (425)</h3>
-                                <div class="tags-container"><div class="category-tag persona-ipo">Persona IPO</div>
-                                <div class="subcategory-tag media">Media</div>
-                                <a href="https://www.sec.gov/Archives/edgar/data/1702780/0001193125-21-347591/d235786d425.htm" class="source-btn" target="_blank">Source</a></div>
-                                <p>First digital-first media IPO via SPAC; stock collapses quickly.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="persona-takeover">
-                            <div class="event-year">2022</div>
-                            <div class="event-content">
-                                <h3>Musk Buys Twitter</h3>                                <div class="tags-container"><div class="category-tag persona-takeover">Persona Takeover</div>
-                                <div class="subcategory-tag social-media">Social Media</div>
-                                <a href="https://www.nytimes.com/2022/10/27/technology/elon-musk-twitter-deal.html" class="source-btn" target="_blank">Source</a></div>
-                                <p>Musk's takeover of Twitter (renamed X) illustrates risks of overexposed persona-trust.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="persona-ipo">
-                            <div class="event-year">2022</div>
-                            <div class="event-content">
-                                <h3>FaZe Clan SPAC Merger & IPO</h3>
-                                <div class="tags-container"><div class="category-tag founder">Founder-Related</div>
-                                <div class="subcategory-tag creator-collective">Creator Collective</div>
-                                <a href="https://www.axios.com/2022/07/20/faze-clan-gaming-spac" class="source-btn" target="_blank">Source</a></div>
-                                <p>Gaming collective goes public via SPAC merger, representing new era of creator economy IPOs.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="persona-ipo">
-                            <div class="event-year">2022</div>
-                            <div class="event-content">
-                                <h3>MrBeast Series A Fundraise</h3>
-                                <div class="tags-container"><div class="category-tag founder">Founder-Related</div>
-                                <div class="subcategory-tag creator-collective">Creator Collective</div></div>
-                                <p>MrBeast raises Series A funding, demonstrating institutional interest in creator economy valuations.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="persona-ipo">
-                            <div class="event-year">2022</div>
-                            <div class="event-content">
-                                <h3>MrBeast offered 1 billion for holding company, declines</h3>
-                                <div class="tags-container"><div class="category-tag founder">Founder-Related</div>
-                                <div class="subcategory-tag creator-collective">Creator Collective</div>
-                                <a href="https://www.businessinsider.com/mr-beast-turned-down-1-billion-dollar-deal-youtuber-2022-9" class="source-btn" target="_blank">Source</a></div>
-                                <p>MrBeast turns down $1B offer for his content empire, citing $10B+ valuation target for full business expansion.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="regulation" data-subcategory="disclosure">
-                            <div class="event-year">2022</div>
-                            <div class="event-content">
-                                <h3>FaZe SEC Prospectus Supplement (424B3)</h3>
-                                <div class="tags-container"><div class="category-tag regulation">Regulation-Related</div>
-                                <div class="subcategory-tag spac-resale">SPAC Resale/Warrant Structure</div>
-                                <a href="https://www.sec.gov/Archives/edgar/data/1839360/000101376223005298/ea187038-424b3_fazehold.htm" class="source-btn" target="_blank">Source</a></div>
-                                <p>SEC filing reveals complex warrant structure and resale registration details.</p>
-                            </div>
-                        </div>
-                        <div class="event" data-category="founder" data-subcategory="persona-ipo">
-            </div>
+    <div class="container">
+        <h1>Trust-Based Investment Timeline</h1>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search by company, year, or keyword...">
+            <button id="searchBtn" class="search-btn">Search</button>
+            <button id="clearBtn" class="clear-btn">Clear</button>
         </div>
 
-        <div class="timeline-progress">
-            <div class="progress-bar"></div>
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                <button class="filter-btn" data-filter="founder">Founder-Related</button>
+                <button class="filter-btn" data-filter="regulation">Regulation-Related</button>
+            </div>
+            <div id="subcategoryContainer" class="subcategory-container"></div>
         </div>
+
+        <div id="loading" class="loading">Loading timeline data...</div>
+        
+        <div id="timeline" class="timeline hidden"></div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        let timelineData = [];
+        let filteredData = [];
+        let currentFilter = 'all';
+        let currentSubcategory = null;
+        let searchTerm = '';
+
+        // Load CSV data
+        async function loadTimelineData() {
+            try {
+                const response = await fetch('timeline-data.csv');
+                const csvText = await response.text();
+                timelineData = parseCSV(csvText);
+                filteredData = [...timelineData];
+                renderTimeline();
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('timeline').classList.remove('hidden');
+            } catch (error) {
+                console.error('Error loading timeline data:', error);
+                document.getElementById('loading').textContent = 'Error loading timeline data';
+            }
+        }
+
+        // Parse CSV data
+        function parseCSV(csvText) {
+            const lines = csvText.trim().split('\n');
+            const headers = lines[0].split(',');
+            const data = [];
+
+            for (let i = 1; i < lines.length; i++) {
+                const values = parseCSVLine(lines[i]);
+                if (values.length >= headers.length) {
+                    const event = {};
+                    headers.forEach((header, index) => {
+                        event[header.trim()] = values[index] ? values[index].trim() : '';
+                    });
+                    data.push(event);
+                }
+            }
+
+            return data.sort((a, b) => {
+                const yearA = parseInt(a.year.split('-')[0]);
+                const yearB = parseInt(b.year.split('-')[0]);
+                return yearA - yearB;
+            });
+        }
+
+        // Parse CSV line handling quoted values
+        function parseCSVLine(line) {
+            const result = [];
+            let current = '';
+            let inQuotes = false;
+            
+            for (let i = 0; i < line.length; i++) {
+                const char = line[i];
+                if (char === '"') {
+                    inQuotes = !inQuotes;
+                } else if (char === ',' && !inQuotes) {
+                    result.push(current);
+                    current = '';
+                } else {
+                    current += char;
+                }
+            }
+            result.push(current);
+            return result;
+        }
+
+        // Render timeline
+        function renderTimeline() {
+            const timeline = document.getElementById('timeline');
+            timeline.innerHTML = '';
+
+            // Group events by decade
+            const eventsByDecade = {};
+            filteredData.forEach(event => {
+                const year = parseInt(event.year.split('-')[0]);
+                const decade = Math.floor(year / 10) * 10;
+                const decadeKey = `${decade}s`;
+                
+                if (!eventsByDecade[decadeKey]) {
+                    eventsByDecade[decadeKey] = [];
+                }
+                eventsByDecade[decadeKey].push(event);
+            });
+
+            // Render each decade
+            Object.keys(eventsByDecade).sort((a, b) => {
+                const decadeA = parseInt(a.replace('s', ''));
+                const decadeB = parseInt(b.replace('s', ''));
+                return decadeA - decadeB;
+            }).forEach(decade => {
+                const section = document.createElement('div');
+                section.className = 'timeline-section';
+                
+                const yearHeader = document.createElement('div');
+                yearHeader.className = 'timeline-year';
+                yearHeader.textContent = decade;
+                
+                const eventsContainer = document.createElement('div');
+                eventsContainer.className = 'timeline-events';
+                
+                eventsByDecade[decade].forEach(event => {
+                    const eventCard = createEventCard(event);
+                    eventsContainer.appendChild(eventCard);
+                });
+                
+                section.appendChild(yearHeader);
+                section.appendChild(eventsContainer);
+                timeline.appendChild(section);
+            });
+        }
+
+        // Create event card
+        function createEventCard(event) {
+            const card = document.createElement('div');
+            card.className = 'event-card';
+            
+            const title = document.createElement('div');
+            title.className = 'event-title';
+            title.textContent = event.title;
+            
+            const description = document.createElement('div');
+            description.className = 'event-description';
+            description.textContent = event.description;
+            
+            const meta = document.createElement('div');
+            meta.className = 'event-meta';
+            
+            const categoryTag = document.createElement('span');
+            categoryTag.className = `category-tag category-${event.category}`;
+            categoryTag.textContent = event.category;
+            
+            meta.appendChild(categoryTag);
+            
+            if (event.subcategory) {
+                const subcategoryTag = document.createElement('span');
+                subcategoryTag.className = 'category-tag';
+                subcategoryTag.style.background = '#ffff00';
+                subcategoryTag.style.color = '#000';
+                subcategoryTag.textContent = event.subcategory;
+                meta.appendChild(subcategoryTag);
+            }
+            
+            if (event.source_url) {
+                const sourceBtn = document.createElement('a');
+                sourceBtn.className = 'source-btn';
+                sourceBtn.href = event.source_url;
+                sourceBtn.target = '_blank';
+                sourceBtn.textContent = 'Source';
+                meta.appendChild(sourceBtn);
+            }
+            
+            card.appendChild(title);
+            card.appendChild(description);
+            card.appendChild(meta);
+            
+            return card;
+        }
+
+        // Filter events
+        function filterEvents() {
+            filteredData = timelineData.filter(event => {
+                // Category filter
+                if (currentFilter !== 'all' && event.category !== currentFilter) {
+                    return false;
+                }
+                
+                // Subcategory filter
+                if (currentSubcategory && event.subcategory !== currentSubcategory) {
+                    return false;
+                }
+                
+                // Search filter
+                if (searchTerm) {
+                    const searchLower = searchTerm.toLowerCase();
+                    return event.title.toLowerCase().includes(searchLower) ||
+                           event.description.toLowerCase().includes(searchLower) ||
+                           event.year.includes(searchTerm) ||
+                           event.category.toLowerCase().includes(searchLower) ||
+                           (event.subcategory && event.subcategory.toLowerCase().includes(searchLower));
+                }
+                
+                return true;
+            });
+            
+            renderTimeline();
+        }
+
+        // Update subcategory buttons
+        function updateSubcategoryButtons() {
+            const container = document.getElementById('subcategoryContainer');
+            container.innerHTML = '';
+            
+            if (currentFilter === 'all') return;
+            
+            const subcategories = [...new Set(
+                timelineData
+                    .filter(event => event.category === currentFilter && event.subcategory)
+                    .map(event => event.subcategory)
+            )];
+            
+            subcategories.forEach(subcategory => {
+                const btn = document.createElement('button');
+                btn.className = 'subcategory-btn';
+                btn.textContent = subcategory;
+                btn.addEventListener('click', () => {
+                    if (currentSubcategory === subcategory) {
+                        currentSubcategory = null;
+                        btn.classList.remove('active');
+                    } else {
+                        currentSubcategory = subcategory;
+                        document.querySelectorAll('.subcategory-btn').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                    }
+                    filterEvents();
+                });
+                container.appendChild(btn);
+            });
+        }
+
+        // Event listeners
+        document.getElementById('searchBtn').addEventListener('click', () => {
+            searchTerm = document.getElementById('searchInput').value;
+            filterEvents();
+        });
+
+        document.getElementById('searchInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchTerm = document.getElementById('searchInput').value;
+                filterEvents();
+            }
+        });
+
+        document.getElementById('clearBtn').addEventListener('click', () => {
+            searchTerm = '';
+            document.getElementById('searchInput').value = '';
+            filterEvents();
+        });
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.dataset.filter;
+                currentSubcategory = null;
+                updateSubcategoryButtons();
+                filterEvents();
+            });
+        });
+
+        // Initialize
+        loadTimelineData();
+    </script>
 </body>
 </html>
